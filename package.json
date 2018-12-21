@@ -1,0 +1,38 @@
+{
+  "name": "icon-of-com",
+  "private": true,
+  "description": "IconOf.com official repo",
+  "version": "1.0.0",
+  "author": "Kostas Mavropalias <mavropalias@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.0.73",
+    "gatsby-image": "^2.0.25",
+    "gatsby-plugin-manifest": "^2.0.12",
+    "gatsby-plugin-offline": "^2.0.20",
+    "gatsby-plugin-react-helmet": "^3.0.4",
+    "gatsby-plugin-sharp": "^2.0.15",
+    "gatsby-plugin-typography": "^2.2.2",
+    "gatsby-source-filesystem": "^2.0.12",
+    "gatsby-source-wordpress": "^3.0.21",
+    "gatsby-transformer-sharp": "^2.1.9",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.18",
+    "typeface-merriweather": "0.0.54",
+    "typeface-montserrat": "0.0.54",
+    "typography": "^0.16.18",
+    "typography-theme-wordpress-2016": "^0.16.18"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+}
