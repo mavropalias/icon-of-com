@@ -1,19 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import { colors } from '../utils/typography'
 
-const IndexPage = ({ data }) => (
-  <Layout>
+const IndexPage = React.memo(({ data }) => (
+  <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Posts posts={data.allWordpressPost.edges} />
-  </Layout>
-)
+  </div>
+))
 
-const Posts = ({ posts }) =>
+const Posts = React.memo(({ posts }) =>
   posts.map(({ node: post }) => (
     <article key={post.id}>
       <h3 style={{ marginBottom: 0 }}>
@@ -27,6 +26,7 @@ const Posts = ({ posts }) =>
       <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
   ))
+)
 
 export default IndexPage
 

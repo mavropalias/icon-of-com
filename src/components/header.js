@@ -14,17 +14,29 @@ const AppHeader = ({ title }) => (
       const fixed = data.avatar.childImageSharp.fixed
 
       return (
-        <Header to="/" title={`${title} home`}>
-          <HeaderImage fixed={fixed} alt={author} />
-          <HeaderMain>
-            <Logo src={logo} alt="logo" />
-            <Author>{author}</Author>
-            <Description>{description}</Description>
-          </HeaderMain>
-        </Header>
+        <AppHeaderHtml
+          title={title}
+          author={author}
+          logo={logo}
+          description={description}
+          fixed={fixed}
+        />
       )
     }}
   />
+)
+
+const AppHeaderHtml = React.memo(
+  ({ title, author, logo, description, fixed }) => (
+    <Header to="/" title={`${title} home`}>
+      <HeaderImage fixed={fixed} alt={author} />
+      <HeaderMain>
+        <Logo src={logo} alt="logo" />
+        <Author>{author}</Author>
+        <Description>{description}</Description>
+      </HeaderMain>
+    </Header>
+  )
 )
 
 const Header = styled(Link)`

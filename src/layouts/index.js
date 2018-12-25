@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { rhythm } from '../utils/typography'
-import AppHeader from './header'
+import AppHeader from '../components/header'
 
 const Layout = ({ children }) => (
   <StaticQuery

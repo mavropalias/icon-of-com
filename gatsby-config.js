@@ -10,6 +10,7 @@ module.exports = {
     }
   },
   plugins: [
+    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-source-wordpress`,
       options: {

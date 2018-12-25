@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Bio from '../components/bio'
-import Layout from '../components/layout'
+// import Bio from '../components/bio'
 import SEO from '../components/seo'
 import { rhythm, scale, colors } from '../utils/typography'
 
@@ -13,7 +12,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <div>
         <SEO title={post.title} description={post.excerpt} />
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
         <p
@@ -33,7 +32,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1)
           }}
         />
-        <Bio />
+        {/* <Bio /> */}
 
         <ul
           style={{
@@ -59,7 +58,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-      </Layout>
+      </div>
     )
   }
 }
