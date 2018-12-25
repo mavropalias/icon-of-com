@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import Image from 'gatsby-image'
+import Img from 'gatsby-image'
 
 import { rhythm, colors } from '../utils/typography'
 import logo from '../images/logo.svg'
@@ -42,7 +42,7 @@ const Header = styled(Link)`
   }
 `
 
-const HeaderImage = styled(Image)`
+const HeaderImage = styled(Img)`
   margin-right: ${rhythm(1 / 2)};
   margin-bottom: 0;
   border-radius: 100%;
