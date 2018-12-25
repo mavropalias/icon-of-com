@@ -1,16 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-import { rhythm } from '../utils/typography'
+import { colors } from '../utils/typography'
 
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Bio />
     <Posts posts={data.allWordpressPost.edges} />
   </Layout>
 )
@@ -18,12 +16,14 @@ const IndexPage = ({ data }) => (
 const Posts = ({ posts }) =>
   posts.map(({ node: post }) => (
     <article key={post.id}>
-      <h3 style={{ marginBottom: rhythm(1 / 4) }}>
+      <h3 style={{ marginBottom: 0 }}>
         <Link style={{ boxShadow: 'none' }} to={post.slug}>
           <span dangerouslySetInnerHTML={{ __html: post.title }} />
         </Link>
       </h3>
-      <small>{post.date}</small>
+      <small style={{ display: 'block', color: colors.secondary }}>
+        {post.date}
+      </small>
       <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
   ))

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { rhythm } from '../utils/typography'
-import Header from './header'
+import AppHeader from './header'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,10 +21,10 @@ const Layout = ({ children }) => (
         style={{
           margin: `0 auto`,
           maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`
         }}
       >
-        <Header title={data.site.siteMetadata.title} />
+        <AppHeader title={data.site.siteMetadata.title} />
         {children}
       </div>
     )}
@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

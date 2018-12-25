@@ -1,16 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
+    subtitle: '',
     author: `Kostas Mavropalias`,
-    description: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology`,
+    description: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
     social: {
-      twitter: `mavropalias`,
-      github: `mavropalias`
+      twitter: `https://twitter.com/mavropalias`,
+      github: `https://github.com/mavropalias`
     }
   },
   plugins: [
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: `gatsby-source-wordpress`,
       options: {
         /*
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
@@ -97,6 +98,7 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

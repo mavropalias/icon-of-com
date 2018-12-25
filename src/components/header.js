@@ -1,28 +1,94 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
+import styled from 'styled-components'
+import Image from 'gatsby-image'
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, colors } from '../utils/typography'
 import logo from '../images/logo.svg'
 
-const Header = ({ title }) => (
-  <h1 style={{ ...scale(1.0), marginBottom: rhythm(1.5), marginTop: 0 }}>
-    <Link
-      to="/"
-      title="IconOf.Com home"
-      style={{
-        color: `inherit`,
-        textDecoration: `none`,
-        boxShadow: 'none'
-      }}
-    >
-      <span style={{ display: 'none' }}>{title}</span>
-      <img
-        src={logo}
-        alt="logo"
-        style={{ display: 'block', height: '44px', margin: 0 }}
-      />
-    </Link>
-  </h1>
+const AppHeader = ({ title }) => (
+  <StaticQuery
+    query={query}
+    render={data => {
+      const { author, description } = data.site.siteMetadata
+      const fixed = data.avatar.childImageSharp.fixed
+
+      return (
+        <Header to="/" title={`${title} home`}>
+          <HeaderImage fixed={fixed} alt={author} />
+          <HeaderMain>
+            <Logo src={logo} alt="logo" />
+            <Author>{author}</Author>
+            <Description>{description}</Description>
+          </HeaderMain>
+        </Header>
+      )
+    }}
+  />
 )
 
-export default Header
+const Header = styled(Link)`
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-bottom: ${rhythm(2)};
+  margin-top: 0;
+  box-shadow: none;
+
+  &:hover {
+    * {
+      color: ${colors.accent};
+    }
+  }
+`
+
+const HeaderImage = styled(Image)`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  border-radius: 100%;
+  flex-shrink: 0;
+`
+
+const HeaderMain = styled.div`
+  display: block;
+`
+
+const Logo = styled.img`
+  display: block;
+  height: 12px;
+  margin: 0;
+`
+
+const Author = styled.div`
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 8px;
+  line-height: 14px;
+  color: ${colors.primary};
+`
+
+const Description = styled.div`
+  margin-top: 4px;
+  line-height: 16px;
+  color: ${colors.secondary};
+`
+
+const query = graphql`
+  query {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 48, height: 48) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        description
+      }
+    }
+  }
+`
+
+export default AppHeader
