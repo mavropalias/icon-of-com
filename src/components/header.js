@@ -10,33 +10,28 @@ const AppHeader = ({ title }) => (
   <StaticQuery
     query={query}
     render={data => {
-      const { author, description } = data.site.siteMetadata
-      const fixed = data.avatar.childImageSharp.fixed
+      const htmlProps = {
+        author: data.site.siteMetadata.author,
+        description: data.site.siteMetadata.description,
+        fixed: data.avatar.childImageSharp.fixed,
+        logo,
+        title
+      }
 
-      return (
-        <AppHeaderHtml
-          title={title}
-          author={author}
-          logo={logo}
-          description={description}
-          fixed={fixed}
-        />
-      )
+      return <AppHeaderHtml {...htmlProps} />
     }}
   />
 )
 
-const AppHeaderHtml = React.memo(
-  ({ title, author, logo, description, fixed }) => (
-    <Header to="/" title={`${title} home`}>
-      <HeaderImage fixed={fixed} alt={author} />
-      <HeaderMain>
-        <Logo src={logo} alt="logo" />
-        <Author>{author}</Author>
-        <Description>{description}</Description>
-      </HeaderMain>
-    </Header>
-  )
+const AppHeaderHtml = ({ title, author, logo, description, fixed }) => (
+  <Header to="/" title={`${title} home`}>
+    <HeaderImage fixed={fixed} alt={author} />
+    <HeaderMain>
+      <Logo src={logo} alt="logo" />
+      <Author>{author}</Author>
+      <Description>{description}</Description>
+    </HeaderMain>
+  </Header>
 )
 
 const Header = styled(Link)`

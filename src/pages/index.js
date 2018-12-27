@@ -5,14 +5,14 @@ import SEO from '../components/seo'
 
 import { colors } from '../utils/typography'
 
-const IndexPage = React.memo(({ data }) => (
+const IndexPage = ({ data }) => (
   <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Posts posts={data.allWordpressPost.edges} />
   </div>
-))
+)
 
-const Posts = React.memo(({ posts }) =>
+const Posts = ({ posts }) =>
   posts.map(({ node: post }) => (
     <article key={post.id}>
       <h3 style={{ marginBottom: 0 }}>
@@ -26,7 +26,6 @@ const Posts = React.memo(({ posts }) =>
       <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
   ))
-)
 
 export default IndexPage
 
