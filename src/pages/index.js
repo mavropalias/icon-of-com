@@ -7,7 +7,16 @@ import { colors } from '../utils/typography'
 
 const IndexPage = ({ data }) => (
   <div>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Home"
+      keywords={[
+        `kostas mavropalias`,
+        `software engineering`,
+        `deep learning`,
+        `user experience`,
+        `cyberpsychology`
+      ]}
+    />
     <Posts
       posts={data.allWordpressPost.edges}
       path={data.site.siteMetadata.postsPath}
