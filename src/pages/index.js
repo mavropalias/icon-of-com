@@ -35,7 +35,7 @@ const Posts = ({ posts, path }) =>
       <small style={{ display: 'block', color: colors.secondary }}>
         {post.date}
       </small>
-      <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+      <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
   ))
 
