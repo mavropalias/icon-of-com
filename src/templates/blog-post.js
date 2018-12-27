@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDisqusComments from 'react-disqus-comments'
 import { Link, graphql } from 'gatsby'
 
 // import Bio from '../components/bio'
@@ -6,10 +7,32 @@ import SEO from '../components/seo'
 import { rhythm, scale, colors } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    const slug = this.props.data.wordpressPost.slug
+
+    if (window.DISQUS) {
+      window.DISQUS.reset({
+        reload: true,
+        config: function() {
+          this.page.url = `https://iconof.com/blog/${slug}`
+        }
+      })
+    } else {
+      window.disqus_config = function() {
+        this.page.url = `https://iconof.com/blog/${slug}`
+      }
+      ;(function() {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script')
+        s.src = 'https://iconofcom.disqus.com/embed.js'
+        s.setAttribute('data-timestamp', +new Date())
+        ;(d.head || d.body).appendChild(s)
+      })()
+    }
+  }
   render() {
     const post = this.props.data.wordpressPost
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
 
     return (
       <div>
@@ -32,32 +55,8 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1)
           }}
         />
-        {/* <Bio /> */}
 
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.slug} rel="prev">
-                ← {previous.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.slug} rel="next">
-                {next.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <div id="disqus_thread" />
       </div>
     )
   }
@@ -67,12 +66,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     wordpressPost(id: { eq: $id }) {
       id
       slug
@@ -80,6 +73,9 @@ export const pageQuery = graphql`
       content
       excerpt
       date(formatString: "MMMM DD, YYYY")
+    }
+    allWordpressWpComments(filter: { post: { eq: 223 } }) {
+      totalCount
     }
   }
 `
