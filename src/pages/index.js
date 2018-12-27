@@ -37,7 +37,6 @@ export const pageQuery = graphql`
           id
           slug
           title
-          content
           excerpt
           date(formatString: "MMMM DD, YYYY")
         }
