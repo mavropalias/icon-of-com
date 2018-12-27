@@ -74,8 +74,5 @@ export const pageQuery = graphql`
       excerpt
       date(formatString: "MMMM DD, YYYY")
     }
-    allWordpressWpComments(filter: { post: { eq: 223 } }) {
-      totalCount
-    }
   }
 `

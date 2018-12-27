@@ -1,5 +1,4 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -40,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
           const next = index === 0 ? null : posts[index - 1].node
 
           createPage({
-            path: post.node.slug,
+            path: `blog/${post.node.slug}`,
             component: blogPost,
             context: {
               slug: post.node.slug,

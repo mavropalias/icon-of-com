@@ -8,15 +8,18 @@ import { colors } from '../utils/typography'
 const IndexPage = ({ data }) => (
   <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Posts posts={data.allWordpressPost.edges} />
+    <Posts
+      posts={data.allWordpressPost.edges}
+      path={data.site.siteMetadata.postsPath}
+    />
   </div>
 )
 
-const Posts = ({ posts }) =>
+const Posts = ({ posts, path }) =>
   posts.map(({ node: post }) => (
     <article key={post.id}>
       <h3 style={{ marginBottom: 0 }}>
-        <Link style={{ boxShadow: 'none' }} to={post.slug}>
+        <Link style={{ boxShadow: 'none' }} to={`${path}/${post.slug}`}>
           <span dangerouslySetInnerHTML={{ __html: post.title }} />
         </Link>
       </h3>
@@ -40,6 +43,11 @@ export const pageQuery = graphql`
           excerpt
           date(formatString: "MMMM DD, YYYY")
         }
+      }
+    }
+    site {
+      siteMetadata {
+        postsPath
       }
     }
   }

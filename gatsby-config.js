@@ -7,7 +7,8 @@ module.exports = {
     social: {
       twitter: `https://twitter.com/mavropalias`,
       github: `https://github.com/mavropalias`
-    }
+    },
+    postsPath: 'blog/'
   },
   plugins: [
     `gatsby-plugin-layout`,
