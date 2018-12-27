@@ -21,6 +21,7 @@
     "gray-percentage": "^2.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
+    "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
