@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
+    siteUrl: `https://iconof.com`,
     author: `Kostas Mavropalias`,
     description: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
     social: {
