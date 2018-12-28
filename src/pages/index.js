@@ -32,7 +32,7 @@ const Posts = ({ posts }) =>
       <small style={{ display: 'block', color: colors.secondary }}>
         {post.frontmatter.date}, {post.timeToRead} min read
       </small>
-      <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+      <div dangerouslySetInnerHTML={{ __html: post.frontmatter.spoiler }} />
     </article>
   ))
 
@@ -48,7 +48,6 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           timeToRead
           fields {
             slug
@@ -56,6 +55,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            spoiler
           }
         }
       }

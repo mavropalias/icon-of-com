@@ -37,7 +37,10 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.spoiler}
+        />
         <h1 dangerouslySetInnerHTML={{ __html: post.frontmatter.title }} />
         <p
           style={{
@@ -69,12 +72,12 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
       html
       timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        spoiler
       }
     }
   }

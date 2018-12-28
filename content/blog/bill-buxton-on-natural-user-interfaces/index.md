@@ -1,6 +1,7 @@
 ---
 title: Natural User Interfaces
 date: '2010-03-24T22:12:03.284Z'
+spoiler: New ways to design natural user interfaces.
 ---
 
 `youtube: https://www.youtube.com/watch?v=EjUElpLZZtc`
