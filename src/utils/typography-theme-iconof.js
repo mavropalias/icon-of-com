@@ -88,7 +88,7 @@ const theme = {
       color: colors.accent,
       textDecoration: 'none'
     },
-    'a:hover,a:active': {
+    'a:not(.gatsby-resp-image-link):hover,a:not(.gatsby-resp-image-link):active': {
       boxShadow: `0 2px 0 0 ${colors.accent}`
     },
     'mark,ins': {
