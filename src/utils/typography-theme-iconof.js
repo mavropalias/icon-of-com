@@ -83,13 +83,13 @@ const theme = {
     h6: {
       fontStyle: 'italic'
     },
-    a: {
-      boxShadow: '0 1px 0 0 currentColor',
+    'a:not(.gatsby-resp-image-link)': {
+      boxShadow: `0 1px 0 0 ${colors.accent}`,
       color: colors.accent,
       textDecoration: 'none'
     },
     'a:hover,a:active': {
-      boxShadow: 'none'
+      boxShadow: `0 2px 0 0 ${colors.accent}`
     },
     'mark,ins': {
       background: colors.accent,
