@@ -30,7 +30,7 @@ const Posts = ({ posts }) =>
         </Link>
       </h3>
       <small style={{ display: 'block', color: colors.secondary }}>
-        {post.frontmatter.date}
+        {post.frontmatter.date}, {post.timeToRead} min read
       </small>
       <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
@@ -49,6 +49,7 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt
+          timeToRead
           fields {
             slug
           }
