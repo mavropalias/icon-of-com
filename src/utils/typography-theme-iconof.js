@@ -96,6 +96,10 @@ const theme = {
       color: 'white',
       padding: `${rhythm(1 / 16)} ${rhythm(1 / 8)}`,
       textDecoration: 'none'
+    },
+    figcaption: {
+      fontSize: '13px',
+      textAlign: 'center'
     }
   })
 }
