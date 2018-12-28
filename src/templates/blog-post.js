@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDisqusComments from 'react-disqus-comments'
 import { Link, graphql } from 'gatsby'
 
 // import Bio from '../components/bio'
@@ -8,19 +7,20 @@ import { rhythm, scale, colors } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
-    const slug = this.props.data.markdownRemark.id
+    const slug = this.props.data.markdownRemark.fields.slug
+    console.log(slug)
 
     // TODO: remove 'blog' from Discus uri
     if (window.DISQUS) {
       window.DISQUS.reset({
         reload: true,
         config: function() {
-          this.page.url = `https://iconof.com/blog/${slug}`
+          this.page.url = `https://iconof.com/blog${slug}`
         }
       })
     } else {
       window.disqus_config = function() {
-        this.page.url = `https://iconof.com/blog/${slug}`
+        this.page.url = `https://iconof.com/blog${slug}`
       }
       ;(function() {
         // DON'T EDIT BELOW THIS LINE
@@ -74,6 +74,9 @@ export const pageQuery = graphql`
       id
       html
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
