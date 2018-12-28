@@ -40,7 +40,7 @@ const Header = styled(Link)`
   font-size: 14px;
   margin-bottom: ${rhythm(2)};
   margin-top: 0;
-  box-shadow: none;
+  box-shadow: none !important;
 
   &:hover {
     * {
