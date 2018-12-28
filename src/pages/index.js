@@ -17,23 +17,20 @@ const IndexPage = ({ data }) => (
         `cyberpsychology`
       ]}
     />
-    <Posts
-      posts={data.allWordpressPost.edges}
-      path={data.site.siteMetadata.postsPath}
-    />
+    <Posts posts={data.allMarkdownRemark.edges} />
   </div>
 )
 
-const Posts = ({ posts, path }) =>
+const Posts = ({ posts }) =>
   posts.map(({ node: post }) => (
-    <article key={post.id}>
+    <article key={post.fields.slug}>
       <h3 style={{ marginBottom: 0 }}>
-        <Link style={{ boxShadow: 'none' }} to={`${path}/${post.slug}`}>
-          <span dangerouslySetInnerHTML={{ __html: post.title }} />
+        <Link style={{ boxShadow: 'none' }} to={post.fields.slug}>
+          <span dangerouslySetInnerHTML={{ __html: post.frontmatter.title }} />
         </Link>
       </h3>
       <small style={{ display: 'block', color: colors.secondary }}>
-        {post.date}
+        {post.frontmatter.date}
       </small>
       <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </article>
@@ -43,20 +40,23 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost {
-      edges {
-        node {
-          id
-          slug
-          title
-          excerpt
-          date(formatString: "MMMM DD, YYYY")
-        }
-      }
-    }
     site {
       siteMetadata {
-        postsPath
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
       }
     }
   }

@@ -8,8 +8,9 @@ import { rhythm, scale, colors } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
-    const slug = this.props.data.wordpressPost.slug
+    const slug = this.props.data.markdownRemark.id
 
+    // TODO: remove 'blog' from Discus uri
     if (window.DISQUS) {
       window.DISQUS.reset({
         reload: true,
@@ -32,12 +33,12 @@ class BlogPostTemplate extends React.Component {
     }
   }
   render() {
-    const post = this.props.data.wordpressPost
+    const post = this.props.data.markdownRemark
 
     return (
       <div>
-        <SEO title={post.title} description={post.excerpt} />
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <h1 dangerouslySetInnerHTML={{ __html: post.frontmatter.title }} />
         <p
           style={{
             ...scale(-1 / 5),
@@ -47,9 +48,9 @@ class BlogPostTemplate extends React.Component {
             color: colors.secondary
           }}
         >
-          {post.date}
+          {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
             marginBottom: rhythm(1)
@@ -65,14 +66,15 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+  query BlogPostBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      slug
-      title
-      content
-      excerpt
-      date(formatString: "MMMM DD, YYYY")
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+      }
     }
   }
 `

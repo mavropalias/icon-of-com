@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import { rhythm, colors } from '../utils/typography'
-import logo from '../images/logo.svg'
+import logo from '../../content/assets/logo.svg'
 
 const AppHeader = ({ title }) => (
   <StaticQuery

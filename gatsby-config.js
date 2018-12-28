@@ -1,55 +1,79 @@
 module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
-    subtitle: '',
     author: `Kostas Mavropalias`,
     description: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
     social: {
       twitter: `https://twitter.com/mavropalias`,
       github: `https://github.com/mavropalias`
-    },
-    postsPath: 'blog/'
+    }
   },
   plugins: [
-    `gatsby-plugin-layout`,
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        baseUrl: 'iconof.com/blog',
-        protocol: 'http',
-        hostingWPCOM: false,
-        useACF: false,
-        acfOptionPageIds: [],
-        verboseOutput: false,
-        perPage: 100,
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'https://iconof.com',
-          replacementUrl: 'https://iconof.com'
-        },
-        concurrentRequests: 10,
-        includedRoutes: [
-          '/*/*/posts',
-          '/*/*/pages',
-          '/*/*/media',
-          '/*/*/comments'
-        ],
-        excludedRoutes: ['/*/*/posts/1456'],
-        normalizer: function({ entities }) {
-          return entities
-        }
-      }
-    },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
+        path: `${__dirname}/content/blog`,
+        name: `blog`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590
+            }
+          },
+          {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+              plugins: [
+                {
+                  resolve: 'gatsby-remark-embed-video',
+                  options: {
+                    width: '100%',
+                    ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+                    height: 400, // Optional: Overrides optional.ratio
+                    related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+                    noIframeBorder: true //Optional: Disable insertion of <style> border: 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`
+        ]
+      }
+    },
+    `gatsby-plugin-layout`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-feed`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,7 +83,7 @@ module.exports = {
         background_color: `#FFFFFF`,
         theme_color: `#B3213D`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png` // This path is relative to the root of the site.
+        icon: `content/assets/icon.png`
       }
     },
     {
@@ -67,6 +91,7 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`
       }
-    }
+    },
+    `gatsby-plugin-offline`
   ]
 }
