@@ -1,6 +1,6 @@
 ---
 title: Natural User Interfaces
-date: '2010-03-24T22:12:03.284Z'
+date: '2010-03-24'
 spoiler: New ways to design natural user interfaces.
 ---
 

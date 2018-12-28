@@ -1,6 +1,6 @@
 ---
 title: Skinput
-date: '2010-03-26T22:12:03.284Z'
+date: '2010-03-26'
 spoiler: Appropriating the body as an input surface
 ---
 
