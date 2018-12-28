@@ -1,5 +1,5 @@
 ---
-title: From LAMP to the new full-JS stack with Node, Mongo, jQuery, Backbone and other cool stuff
+title: From LAMP to the new full-JS stack
 date: '2011-11-02'
 spoiler: Since 1999 I have been developing my websites on the LAMP stack. Time for a change.
 ---
