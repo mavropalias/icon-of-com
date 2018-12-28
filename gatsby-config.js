@@ -24,6 +24,7 @@ module.exports = {
         name: `assets`
       }
     },
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -32,24 +33,17 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
+              maxWidth: 800
             }
           },
           {
-            resolve: 'gatsby-transformer-remark',
+            resolve: 'gatsby-remark-embed-video',
             options: {
-              plugins: [
-                {
-                  resolve: 'gatsby-remark-embed-video',
-                  options: {
-                    width: '100%',
-                    ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-                    height: 400, // Optional: Overrides optional.ratio
-                    related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-                    noIframeBorder: true //Optional: Disable insertion of <style> border: 0
-                  }
-                }
-              ]
+              width: '100%',
+              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+              height: 400, // Optional: Overrides optional.ratio
+              related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+              noIframeBorder: true //Optional: Disable insertion of <style> border: 0
             }
           },
           {
@@ -66,7 +60,6 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-sharp`,
     {
