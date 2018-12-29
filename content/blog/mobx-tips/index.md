@@ -20,7 +20,7 @@ configure({ enforceActions: 'observed' })
 
 #### Why?
 
-MobX allows you to modify stores in two ways. You can either mutate any of the store's properties directly, or you can wrap the code in an action.
+MobX allows you to modify stores in two ways; directly or within actions:
 
 ```js
 // mutate directly
