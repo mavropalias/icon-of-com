@@ -1,6 +1,8 @@
 /**
- * Based on copypasta from Remy Bach and Sarah Drasner
+ * Thanks
+ * https://github.com/gaearon/overreacted.io/blob/master/src/utils/theme.css
  */
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: white;
