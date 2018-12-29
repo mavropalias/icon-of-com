@@ -29,7 +29,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-copy-linked-files`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -56,6 +55,7 @@ module.exports = {
             }
           },
           `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`
         ]
       }
@@ -63,7 +63,6 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-feed`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -89,6 +88,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`
       }
     },
-    `gatsby-plugin-offline`
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-feed`
   ]
 }
