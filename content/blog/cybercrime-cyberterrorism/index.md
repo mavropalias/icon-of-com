@@ -1,5 +1,5 @@
 ---
-title: Cybercrime & Cyberterrorism, a Cyberpsychological perspective
+title: Cybercrime & Cyberterrorism — a Cyberpsychological perspective
 date: '2011-02-23'
 spoiler: How people perceive these two terms and how they are affected by them.
 ---
