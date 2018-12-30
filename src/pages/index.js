@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 import SEO from '../components/seo'
-
-import { colors } from '../utils/typography'
+import MiniProfile from '../components/mini-profile'
+import MiniProjects from '../components/mini-projects'
+import { rhythm, colors } from '../utils/typography'
 
 const IndexPage = ({ data }) => (
   <div>
@@ -17,6 +20,11 @@ const IndexPage = ({ data }) => (
         `cyberpsychology`
       ]}
     />
+    <MiniProfile
+      pic={data.avatar.childImageSharp.fixed}
+      map={data.map.childImageSharp.fixed}
+    />
+    <MiniProjects />
     <Posts posts={data.allMarkdownRemark.edges} />
   </div>
 )
@@ -40,6 +48,20 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
+    map: file(absolutePath: { regex: "/map.png/" }) {
+      childImageSharp {
+        fixed(width: 313, height: 202) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 80, height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
