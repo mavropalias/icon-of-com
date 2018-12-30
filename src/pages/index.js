@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import { Link, graphql } from 'gatsby'
 
 import SEO from '../components/seo'
 import MiniProfile from '../components/mini-profile'
 import MiniProjects from '../components/mini-projects'
-import { rhythm, colors } from '../utils/typography'
+import { colors } from '../utils/typography'
 
 const IndexPage = ({ data }) => (
   <div>

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`
+})
+
 module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
@@ -22,6 +26,18 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+        },
+        fetchOptions: {}
       }
     },
     `gatsby-transformer-sharp`,
