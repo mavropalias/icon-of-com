@@ -1,20 +1,26 @@
 import React from 'react'
+import { StaticQuery, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import { rhythm } from '../utils/typography'
+import colors from '../utils/colors'
 
-const MiniProfile = ({ pic, map }) => (
-  <Section>
-    <ProfileImage fixed={pic} />
-    <About />
-    <ProfileMap fixed={map} />
-  </Section>
+const MiniProfile = () => (
+  <StaticQuery
+    query={query}
+    render={data => (
+      <Section>
+        <ProfileImage fixed={data.avatar.childImageSharp.fixed} />
+        <About />
+        <ProfileMap fixed={data.map.childImageSharp.fixed} />
+      </Section>
+    )}
+  />
 )
 
 const Section = styled.section`
-  margin-bottom: ${rhythm(2)};
+  margin-bottom: 64px;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     display: flex;
@@ -23,14 +29,14 @@ const Section = styled.section`
 `
 
 const ProfileImage = styled(Img)`
-  margin: 0 ${rhythm(1 / 2)} ${rhythm(1 / 8)} 0;
+  margin: 0 16px 4px 0;
   flex-shrink: 0;
   float: left;
   border-radius: 100%;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     border-radius: 0;
-    margin: 0 ${rhythm(1)} ${rhythm(1 / 2)} 0;
+    margin: 0 32px 16px 0;
     float: none;
   }
 `
@@ -51,6 +57,10 @@ const About = () => (
       software engineering and the cyberpsychology of human–computer
       interactions.
     </AboutParagraph>
+    <Footer>
+      <em>Kostas Mavropalias, MSc</em>
+      <StyledLink to="/profile">Full profile</StyledLink>
+    </Footer>
   </div>
 )
 
@@ -67,7 +77,43 @@ const AboutParagraph = styled.p`
   margin-bottom: 16px;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
-    margin-right: ${rhythm(1)};
+    margin-right: 32px;
+  }
+`
+
+const Footer = styled.footer`
+  font-size: 14px;
+  line-height: 14px;
+  color: ${colors.secondary};
+  margin-bottom: 32px;
+
+  ${MIN_MOBILE_MEDIA_QUERY} {
+    margin-bottom: 0;
+  }
+`
+
+const StyledLink = styled(Link)`
+  color: ${colors.secondary};
+  margin-left: 16px;
+  box-shadow: 0 1px 0 0 ${colors.secondary};
+`
+
+export const query = graphql`
+  query {
+    map: file(absolutePath: { regex: "/map.png/" }) {
+      childImageSharp {
+        fixed(width: 313, height: 202) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 80, height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
   }
 `
 

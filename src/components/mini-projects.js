@@ -3,7 +3,6 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import { rhythm } from '../utils/typography'
 import cosmos from '../../content/assets/cosmos.jpg'
 
 const MiniProjects = () => (
@@ -13,8 +12,8 @@ const MiniProjects = () => (
       <Container>
         <StyledH2>Projects</StyledH2>
         <Projects>
-          {data.github.user.pinnedRepositories.nodes.map(repo => (
-            <Project repo={repo} />
+          {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
+            <Project repo={repo} key={index} />
           ))}
         </Projects>
       </Container>
@@ -28,39 +27,39 @@ const Container = styled.section`
   background-position: center;
   background-size: cover;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-  padding: ${rhythm(1)};
-  margin-bottom: ${rhythm(2)};
+  padding: 32px 16px;
+  margin-bottom: 64px;
   color: white;
   position: relative;
   transition: all 0.2s ease-in-out;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
-    margin-left: -${rhythm(2)};
-    margin-right: -${rhythm(2)};
-    padding: ${rhythm(1)} ${rhythm(2)};
+    margin-left: -32px;
+    margin-right: -32px;
+    padding: 32px;
 
     &:hover {
-      /* margin-top: -${rhythm(1)}; */
-      /* margin-bottom: ${rhythm(1)}; */
-      margin-left: -${rhythm(8)};
-      margin-right: -${rhythm(8)};
-      padding: ${rhythm(1)} ${rhythm(8)};
+      margin-left: -128px;
+      margin-right: -128px;
+      padding: 32px 128px;
       border-radius: 4px;
-      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8);
     }
   }
 `
 
 const StyledH2 = styled.h2`
-  margin: 0 0 ${rhythm(1)};
+  margin: 0 0 32px;
   padding: 0;
+  font-size: 32px;
+  line-height: 32px;
+  color: white;
 `
 
 const Projects = styled.ul`
   list-style: none;
   margin: 0;
   display: grid;
-  grid-gap: ${rhythm(1 / 2)} ${rhythm(1)};
+  grid-gap: 16px 32px;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     grid-template-columns: repeat(2, 1fr);
@@ -78,8 +77,8 @@ const Project = ({ repo }) => (
       </ProjectTitle>
       <ProjectDescription>{repo.description}</ProjectDescription>
       <ProjectTopics>
-        {repo.repositoryTopics.nodes.map(node => (
-          <ProjectTopic>{node.topic.name}</ProjectTopic>
+        {repo.repositoryTopics.nodes.map((node, index) => (
+          <ProjectTopic key={index}>{node.topic.name}</ProjectTopic>
         ))}
       </ProjectTopics>
     </ProjectLink>
@@ -94,7 +93,7 @@ const ProjectLink = styled.a`
   display: block;
   height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.75);
-  padding: ${rhythm(1 / 2)} ${rhythm(1 / 2)} ${rhythm(3 / 8)};
+  padding: 16px 16px 12px;
   color: white;
   transition: all 0.2s ease-in-out;
 
@@ -113,13 +112,13 @@ const ProjectTitle = styled.h3`
   font-weight: 900;
   font-size: 16px;
   line-height: 16px;
-  margin: 0 0 ${rhythm(1 / 4)};
+  margin: 0 0 8px;
   padding: 0;
   text-transform: capitalize;
 `
 
 const ProjectHomepage = styled.span`
-  margin-left: ${rhythm(1 / 4)};
+  margin-left: 8px;
   text-transform: none;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
@@ -129,7 +128,7 @@ const ProjectDescription = styled.p`
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   line-height: 18px;
-  margin-bottom: ${rhythm(1 / 4)};
+  margin-bottom: 8px;
 `
 
 const ProjectTopics = styled.ul`
@@ -143,7 +142,7 @@ const ProjectTopic = styled.li`
   margin: 0;
   font-size: 13px;
   line-height: 13px;
-  margin: 0 ${rhythm(1 / 4)} ${rhythm(1 / 8)} 0;
+  margin: 0 8px 8px 0;
   color: rgba(255, 255, 255, 0.75);
   font-variant: small-caps;
 `
