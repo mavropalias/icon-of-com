@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, Link } from 'gatsby'
+import { StaticQuery, Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
@@ -98,7 +98,7 @@ const StyledLink = styled(Link)`
   box-shadow: 0 1px 0 0 ${colors.secondary};
 `
 
-export const query = graphql`
+const query = graphql`
   query {
     map: file(absolutePath: { regex: "/map.png/" }) {
       childImageSharp {

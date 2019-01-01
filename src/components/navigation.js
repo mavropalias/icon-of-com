@@ -21,11 +21,6 @@ const Navigation = ({ compact }) => (
           Profile
         </MenuItemLink>
       </MenuItem>
-      <MenuItem>
-        <MenuItemLink to="/projects" activeClassName="active">
-          Projects
-        </MenuItemLink>
-      </MenuItem>
     </Menu>
     {!compact && (
       <SocialLinks>
