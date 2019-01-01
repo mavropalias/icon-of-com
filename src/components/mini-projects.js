@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { rhythm } from '../utils/typography'
+import cosmos from '../../content/assets/cosmos.jpg'
 
 const MiniProjects = () => (
   <StaticQuery
@@ -22,7 +23,7 @@ const MiniProjects = () => (
 )
 
 const Container = styled.section`
-  background: linear-gradient(135deg, #3023ae, #c86dd7), url('/cosmos.png');
+  background: linear-gradient(135deg, #3023ae, #c86dd7), url(${cosmos});
   background-blend-mode: lighten;
   background-position: center;
   background-size: cover;
@@ -39,11 +40,11 @@ const Container = styled.section`
     padding: ${rhythm(1)} ${rhythm(2)};
 
     &:hover {
-      margin-top: -${rhythm(1)};
-      margin-bottom: ${rhythm(1)};
+      /* margin-top: -${rhythm(1)}; */
+      /* margin-bottom: ${rhythm(1)}; */
       margin-left: -${rhythm(8)};
       margin-right: -${rhythm(8)};
-      padding: ${rhythm(2)} ${rhythm(8)};
+      padding: ${rhythm(1)} ${rhythm(8)};
       border-radius: 4px;
       box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8);
     }
