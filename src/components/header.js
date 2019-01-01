@@ -3,10 +3,12 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-import { rhythm, colors } from '../utils/typography'
+import { colors } from '../utils/typography'
+
+import Navigation from './navigation'
 import logo from '../../content/assets/logo.svg'
 
-const AppHeader = ({ title }) => (
+const Header = ({ title }) => (
   <StaticQuery
     query={query}
     render={data => {
@@ -24,21 +26,29 @@ const AppHeader = ({ title }) => (
 )
 
 const AppHeaderHtml = ({ title, author, logo, description, fixed }) => (
-  <Header to="/" title={`${title} home`}>
-    <HeaderImage fixed={fixed} alt={author} />
-    <HeaderMain>
-      <Logo src={logo} alt="logo" />
-      <Author>{author}</Author>
-      <Description>{description}</Description>
-    </HeaderMain>
-  </Header>
+  <HeaderHtml>
+    <Main to="/" title={`${title} home`}>
+      <ProfileImage fixed={fixed} alt={author} />
+      <Banner>
+        <Logo src={logo} alt="logo" />
+        <Author>{author}</Author>
+        <Description>{description}</Description>
+      </Banner>
+    </Main>
+    <Navigation />
+  </HeaderHtml>
 )
 
-const Header = styled(Link)`
+const HeaderHtml = styled.header`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 64px;
+`
+
+const Main = styled(Link)`
   display: flex;
   align-items: flex-start;
   font-size: 14px;
-  margin-bottom: ${rhythm(2)};
   margin-top: 0;
   box-shadow: none !important;
 
@@ -49,14 +59,15 @@ const Header = styled(Link)`
   }
 `
 
-const HeaderImage = styled(Img)`
-  margin-right: ${rhythm(1 / 2)};
+const ProfileImage = styled(Img)`
+  margin-right: 16px;
   margin-bottom: 0;
   border-radius: 100%;
   flex-shrink: 0;
+  display: none !important;
 `
 
-const HeaderMain = styled.div`
+const Banner = styled.div`
   display: block;
 `
 
@@ -98,4 +109,4 @@ const query = graphql`
   }
 `
 
-export default AppHeader
+export default Header

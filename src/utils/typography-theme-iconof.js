@@ -83,12 +83,12 @@ const theme = {
     h6: {
       fontStyle: 'italic'
     },
-    'a:not(.gatsby-resp-image-link)': {
+    a: {
       boxShadow: `0 1px 0 0 ${colors.accent}`,
       color: colors.accent,
       textDecoration: 'none'
     },
-    'a:not(.gatsby-resp-image-link):hover,a:not(.gatsby-resp-image-link):active': {
+    'a:hover,a:active': {
       boxShadow: `0 2px 0 0 ${colors.accent}`
     },
     'mark,ins': {

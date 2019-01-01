@@ -1,42 +1,27 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
+import MiniProfile from '../components/mini-profile'
+import MiniProjects from '../components/mini-projects'
+import BlogPosts from '../components/blog-posts'
 
-import { colors } from '../utils/typography'
+const SEO_KEYWORDS = [
+  `kostas mavropalias`,
+  `software engineering`,
+  `deep learning`,
+  `user experience`,
+  `cyberpsychology`
+]
 
 const IndexPage = ({ data }) => (
-  <div>
-    <SEO
-      title="Home"
-      keywords={[
-        `kostas mavropalias`,
-        `software engineering`,
-        `deep learning`,
-        `user experience`,
-        `cyberpsychology`
-      ]}
-    />
-    <Posts posts={data.allMarkdownRemark.edges} />
-  </div>
+  <React.Fragment>
+    <SEO title="Home" keywords={SEO_KEYWORDS} />
+    <MiniProfile />
+    <MiniProjects />
+    <BlogPosts />
+  </React.Fragment>
 )
-
-const Posts = ({ posts }) =>
-  posts.map(({ node: post }) => (
-    <article key={post.fields.slug}>
-      <h3 style={{ marginBottom: 0 }}>
-        <Link style={{ boxShadow: 'none' }} to={post.fields.slug}>
-          <span dangerouslySetInnerHTML={{ __html: post.frontmatter.title }} />
-        </Link>
-      </h3>
-      <small style={{ display: 'block', color: colors.secondary }}>
-        {post.frontmatter.date}, {post.timeToRead} min read
-      </small>
-      <div dangerouslySetInnerHTML={{ __html: post.frontmatter.spoiler }} />
-    </article>
-  ))
-
-export default IndexPage
 
 export const pageQuery = graphql`
   query {
@@ -45,20 +30,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            spoiler
-          }
-        }
-      }
-    }
   }
 `
+
+export default IndexPage
