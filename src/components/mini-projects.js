@@ -27,16 +27,20 @@ const Container = styled.section`
   background-position: center;
   background-size: cover;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-  padding: 32px 16px;
+  margin-left: -16px;
+  margin-right: -16px;
   margin-bottom: 64px;
+  padding: 32px 16px;
   color: white;
   position: relative;
   transition: all 0.2s ease-in-out;
+  border-radius: 4px;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     margin-left: -32px;
     margin-right: -32px;
     padding: 32px;
+    border-radius: 0;
 
     &:hover {
       margin-left: -128px;
