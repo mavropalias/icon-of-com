@@ -40,7 +40,7 @@ const AppHeaderHtml = ({
     <Main to="/" title={`${title} home`}>
       {useBlogLayout && (
         <ProfileImageContainer>
-          <ProfileImage fixed={fixed} alt={author} />
+          <ProfileImage fixed={fixed} />
         </ProfileImageContainer>
       )}
       <Banner>
