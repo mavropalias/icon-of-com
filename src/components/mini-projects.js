@@ -10,13 +10,13 @@ const MiniProjects = () => (
     query={query}
     render={data => (
       <Container>
-        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
         <StyledH2>Projects</StyledH2>
         <Projects>
           {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
         </Projects>
+        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
       </Container>
     )}
   />
@@ -59,6 +59,7 @@ const BackgroundImage = styled(Img)`
   width: 100%;
   height: 100%;
   mix-blend-mode: lighten;
+  pointer-events: none;
 `
 
 const StyledH2 = styled.h2`
