@@ -8,7 +8,6 @@ import { rhythm, scale, colors } from '../utils/typography'
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
     const slug = this.props.data.markdownRemark.fields.slug
-    console.log(slug)
 
     // TODO: remove 'blog' from Discus uri
     if (window.DISQUS) {
