@@ -59,7 +59,7 @@ const About = () => (
     </AboutParagraph>
     <Footer>
       <em>Kostas Mavropalias, MSc</em>
-      <StyledLink to="/profile">Full profile</StyledLink>
+      <StyledLink to="/profile/">Full profile</StyledLink>
     </Footer>
   </div>
 )
