@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
@@ -18,7 +18,7 @@ const SEO_KEYWORDS = [
 ]
 
 const Page = ({ data }) => (
-  <div>
+  <React.Fragment>
     <SEO title="Profile" keywords={SEO_KEYWORDS} />
     <ProfileImage
       title={data.site.siteMetadata.author}
@@ -26,17 +26,16 @@ const Page = ({ data }) => (
       fixed={data.avatar.childImageSharp.fixed}
     />
     <About />
-  </div>
+  </React.Fragment>
 )
 
 const ProfileImage = styled(Img)`
-  margin: 0 16px 4px 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  margin: 0 0 16px 0;
   flex-shrink: 0;
-  float: left;
-  border-radius: 100%;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
-    border-radius: 0;
+    float: left;
     margin: 0 32px 16px 0;
   }
 `
@@ -109,10 +108,10 @@ const About = () => (
 )
 
 const AboutParagraph = styled.p`
-  padding: 0 ${rhythm(3 / 4)};
   max-width: ${rhythm(24)};
 
   ${MIN_MOBILE_MEDIA_QUERY} {
+    padding: 0 ${rhythm(3 / 4)};
   }
 `
 
@@ -129,13 +128,6 @@ const Footer = styled.footer`
 
 export const query = graphql`
   query {
-    map: file(absolutePath: { regex: "/map.png/" }) {
-      childImageSharp {
-        fixed(width: 313, height: 202) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 256, height: 256) {

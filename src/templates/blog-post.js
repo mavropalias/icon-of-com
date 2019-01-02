@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 // import Bio from '../components/bio'
 import SEO from '../components/seo'
@@ -39,8 +39,7 @@ class BlogPostTemplate extends React.Component {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: rhythm(24),
-          padding: `0 ${rhythm(3 / 4)}`
+          maxWidth: rhythm(24)
         }}
       >
         <SEO
