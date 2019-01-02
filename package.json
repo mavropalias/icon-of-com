@@ -6,7 +6,7 @@
   "author": "Kostas Mavropalias <mavropalias@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby": "^2.0.73",
+    "gatsby": "^2.0.81",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
@@ -35,6 +35,7 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "styled-components": "^4.1.3",
+    "typeface-monda": "0.0.54",
     "typography": "^0.16.18",
     "typography-breakpoint-constants": "^0.16.18"
   },

@@ -103,14 +103,14 @@ const query = graphql`
     map: file(absolutePath: { regex: "/map.png/" }) {
       childImageSharp {
         fixed(width: 313, height: 202) {
-          ...GatsbyImageSharpFixed
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 80, height: 80) {
-          ...GatsbyImageSharpFixed
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

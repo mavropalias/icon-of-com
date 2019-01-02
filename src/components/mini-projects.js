@@ -1,15 +1,16 @@
 import React from 'react'
-import { graphql, StaticQuery, Link } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import cosmos from '../../content/assets/cosmos.jpg'
 
 const MiniProjects = () => (
   <StaticQuery
     query={query}
     render={data => (
       <Container>
+        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
         <StyledH2>Projects</StyledH2>
         <Projects>
           {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
@@ -22,10 +23,7 @@ const MiniProjects = () => (
 )
 
 const Container = styled.section`
-  background: linear-gradient(135deg, #3023ae, #c86dd7), url(${cosmos});
-  background-blend-mode: lighten;
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(135deg, #3023ae, #c86dd7);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
   margin-left: -16px;
   margin-right: -16px;
@@ -35,6 +33,7 @@ const Container = styled.section`
   position: relative;
   transition: all 0.2s ease-in-out;
   border-radius: 4px;
+  position: relative;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     margin-left: -32px;
@@ -49,6 +48,17 @@ const Container = styled.section`
       border-radius: 4px;
     }
   }
+`
+
+const BackgroundImage = styled(Img)`
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
 `
 
 const StyledH2 = styled.h2`
@@ -153,6 +163,13 @@ const ProjectTopic = styled.li`
 
 const query = graphql`
   query {
+    background: file(absolutePath: { regex: "/cosmos.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 990) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
     github {
       user(login: "mavropalias") {
         pinnedRepositories(first: 6) {

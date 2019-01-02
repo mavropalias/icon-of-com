@@ -8,12 +8,6 @@ const theme = {
   baseFontSize: '20px',
   baseLineHeight: 1.75,
   scaleRatio: 3,
-  googleFonts: [
-    {
-      name: 'Monda',
-      styles: ['700']
-    }
-  ],
   headerFontFamily: [
     'Monda',
     '-apple-system',
