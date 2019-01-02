@@ -75,7 +75,8 @@ const Main = styled(Link)`
   }
 `
 
-const ProfileImageContainer = styled.div`
+const ProfileImageContainer = styled.span`
+  display: block;
   width: 54px;
   height: 54px;
   margin-right: 16px;
@@ -87,7 +88,7 @@ const ProfileImage = styled(Img)`
   margin-bottom: 0;
 `
 
-const Banner = styled.div`
+const Banner = styled.span`
   display: block;
 `
 
@@ -97,7 +98,8 @@ const Logo = styled.img`
   margin: 0;
 `
 
-const Author = styled.div`
+const Author = styled.span`
+  display: block;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 8px;
@@ -105,7 +107,8 @@ const Author = styled.div`
   color: ${colors.primary};
 `
 
-const Description = styled.div`
+const Description = styled.span`
+  display: block;
   margin-top: 4px;
   line-height: 16px;
   color: ${colors.secondary};
