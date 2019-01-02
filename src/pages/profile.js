@@ -57,7 +57,7 @@ const About = () => (
     </AboutParagraph>
     <AboutParagraph>
       My work has been featured on{' '}
-      <a href="https://web.archive.org/web/20180826074751/http://lifehacker.com/5700199/penguspy-is-a-database-chock-full-of-games-for-linux">
+      <a href="http://lifehacker.com/5700199/penguspy-is-a-database-chock-full-of-games-for-linux">
         Lifehacker
       </a>
       ,{' '}
@@ -65,14 +65,10 @@ const About = () => (
         Social Times
       </a>
       ,{' '}
-      <a href="https://web.archive.org/web/20180826074751/http://kotaku.com/5700996/own-linux-you-can-play-all-these-games">
+      <a href="http://kotaku.com/5700996/own-linux-you-can-play-all-these-games">
         Kotaku
       </a>
-      ,{' '}
-      <a href="https://web.archive.org/web/20180826074751/http://revision3.com/tekzilla/musictranscoding/best-linux-games-penguspy-#segment-5671">
-        Tekzilla
-      </a>
-      ,{' '}
+      , Tekzilla ,{' '}
       <a href="http://www.jupiterbroadcasting.com/2936/ubuntu-1010-review-las-s14e01/">
         The Linux Action Show
       </a>{' '}
