@@ -8,14 +8,16 @@ import { colors } from '../utils/typography'
 import Navigation from './navigation'
 import logo from '../../content/assets/logo.svg'
 
-const Header = ({ title }) => (
+const Header = ({ title, useBlogLayout }) => (
   <StaticQuery
     query={query}
     render={data => {
       const htmlProps = {
         author: data.site.siteMetadata.author,
         description: data.site.siteMetadata.description,
+        blogDescription: data.site.siteMetadata.blogDescription,
         fixed: data.avatar.childImageSharp.fixed,
+        useBlogLayout,
         logo,
         title
       }
@@ -25,17 +27,27 @@ const Header = ({ title }) => (
   />
 )
 
-const AppHeaderHtml = ({ title, author, logo, description, fixed }) => (
+const AppHeaderHtml = ({
+  title,
+  author,
+  logo,
+  description,
+  blogDescription,
+  fixed,
+  useBlogLayout
+}) => (
   <HeaderHtml>
     <Main to="/" title={`${title} home`}>
-      <ProfileImage fixed={fixed} alt={author} />
+      {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
       <Banner>
         <Logo src={logo} alt="logo" />
         <Author>{author}</Author>
-        <Description>{description}</Description>
+        <Description>
+          {useBlogLayout ? blogDescription : description}
+        </Description>
       </Banner>
     </Main>
-    <Navigation />
+    {!useBlogLayout && <Navigation />}
   </HeaderHtml>
 )
 
@@ -62,9 +74,7 @@ const Main = styled(Link)`
 const ProfileImage = styled(Img)`
   margin-right: 16px;
   margin-bottom: 0;
-  border-radius: 100%;
   flex-shrink: 0;
-  display: none !important;
 `
 
 const Banner = styled.div`
@@ -95,7 +105,7 @@ const query = graphql`
   query {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 48, height: 48) {
+        fixed(width: 54, height: 54) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -104,6 +114,7 @@ const query = graphql`
       siteMetadata {
         author
         description
+        blogDescription
       }
     }
   }

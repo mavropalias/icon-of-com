@@ -1,11 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { rhythm } from '../utils/typography'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -24,7 +23,10 @@ const Layout = ({ children }) => (
           padding: '64px 32px'
         }}
       >
-        <Header title={data.site.siteMetadata.title} />
+        <Header
+          title={data.site.siteMetadata.title}
+          useBlogLayout={pageContext.layout === 'blog'}
+        />
         {children}
         <Footer />
       </div>
