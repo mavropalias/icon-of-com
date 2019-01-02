@@ -1,10 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { rhythm } from '../utils/typography'
-import AppHeader from '../components/header'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -19,12 +19,16 @@ const Layout = ({ children }) => (
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`
+          maxWidth: '990px',
+          padding: '64px 32px'
         }}
       >
-        <AppHeader title={data.site.siteMetadata.title} />
+        <Header
+          title={data.site.siteMetadata.title}
+          useBlogLayout={pageContext.layout === 'blog'}
+        />
         {children}
+        <Footer />
       </div>
     )}
   />

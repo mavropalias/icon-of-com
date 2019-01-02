@@ -1,2 +1,3 @@
 // gatsby-browser.js
-require('./src/utils/code-highlight.css')
+import './src/utils/code-highlight.css'
+import 'typeface-monda'

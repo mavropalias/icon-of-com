@@ -8,7 +8,6 @@ import { rhythm, scale, colors } from '../utils/typography'
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
     const slug = this.props.data.markdownRemark.fields.slug
-    console.log(slug)
 
     // TODO: remove 'blog' from Discus uri
     if (window.DISQUS) {
@@ -32,11 +31,18 @@ class BlogPostTemplate extends React.Component {
       })()
     }
   }
+
   render() {
     const post = this.props.data.markdownRemark
 
     return (
-      <div>
+      <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: rhythm(24),
+          padding: `0 ${rhythm(3 / 4)}`
+        }}
+      >
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
@@ -54,12 +60,6 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}, {post.timeToRead} min read
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1)
-          }}
-        />
-
         <div id="disqus_thread" />
       </div>
     )

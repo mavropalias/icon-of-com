@@ -1,9 +1,14 @@
+require('dotenv').config({
+  path: `.env`
+})
+
 module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
     siteUrl: `https://iconof.com`,
     author: `Kostas Mavropalias`,
-    description: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
+    description: 'Software Engineer, Author, Cyberpsychologist',
+    blogDescription: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
     social: {
       twitter: `https://twitter.com/mavropalias`,
       github: `https://github.com/mavropalias`
@@ -22,6 +27,18 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+        },
+        fetchOptions: {}
       }
     },
     `gatsby-transformer-sharp`,
