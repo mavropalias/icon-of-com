@@ -75,6 +75,8 @@ const ProfileImage = styled(Img)`
   margin-right: 16px;
   margin-bottom: 0;
   flex-shrink: 0;
+  width: 54px;
+  height: 54px;
 `
 
 const Banner = styled.div`
