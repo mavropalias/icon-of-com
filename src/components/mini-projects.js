@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 
+import { colors } from '../utils/typography'
+
 const MiniProjects = () => (
   <StaticQuery
     query={query}
@@ -75,6 +77,8 @@ const Projects = styled.ul`
   margin: 0;
   display: grid;
   grid-gap: 16px 32px;
+  position: relative;
+  z-index: 1;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     grid-template-columns: repeat(2, 1fr);
@@ -107,19 +111,17 @@ const StyledProject = styled.li`
 const ProjectLink = styled.a`
   display: block;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid #a5dbedbf;
+  box-shadow: none;
   padding: 16px 16px 12px;
-  color: white;
+  color: inherit;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.5),
-      rgba(48, 35, 174, 0.7)
-    );
+    background: rgb(165, 219, 237);
     border-color: transparent;
     box-shadow: 0 8px 16px rgba(48, 35, 174, 0.8);
+    color: ${colors.primary};
   }
 `
 
@@ -136,11 +138,11 @@ const ProjectHomepage = styled.span`
   margin-left: 8px;
   text-transform: none;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: inherit;
+  opacity: 0.6;
 `
 
 const ProjectDescription = styled.p`
-  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   line-height: 18px;
   margin-bottom: 8px;
@@ -157,8 +159,8 @@ const ProjectTopic = styled.li`
   margin: 0;
   font-size: 13px;
   line-height: 13px;
-  margin: 0 8px 8px 0;
-  color: rgba(255, 255, 255, 0.75);
+  margin: 0 8px 4px 0;
+  opacity: 0.75;
   font-variant: small-caps;
 `
 
