@@ -17,7 +17,7 @@ const Navigation = ({ compact }) => (
         </MenuItemLink>
       </MenuItem>
       <MenuItem>
-        <MenuItemLink to="/profile" activeClassName="active">
+        <MenuItemLink to="/profile/" activeClassName="active">
           Profile
         </MenuItemLink>
       </MenuItem>
