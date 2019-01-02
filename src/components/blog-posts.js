@@ -114,7 +114,7 @@ const BlogPostSmall = ({ post }) => (
   </StyledBlogPostSmall>
 )
 
-export const query = graphql`
+const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
