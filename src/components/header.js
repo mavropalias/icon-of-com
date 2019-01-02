@@ -109,7 +109,7 @@ const query = graphql`
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 54, height: 54) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
