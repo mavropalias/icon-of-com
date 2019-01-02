@@ -85,6 +85,9 @@ const theme = {
     'a:hover,a:active': {
       boxShadow: `0 2px 0 0 ${colors.accent}`
     },
+    '.gatsby-resp-image-link, .gatsby-resp-image-link:hover': {
+      boxShadow: 'none'
+    },
     'mark,ins': {
       background: colors.accent,
       color: 'white',
