@@ -39,7 +39,9 @@ const AppHeaderHtml = ({
   <HeaderHtml>
     <Main to="/" title={`${title} home`}>
       {useBlogLayout && (
-        <ProfileImage fixed={fixed} alt={author} fadeIn={false} />
+        <ProfileImageContainer>
+          <ProfileImage fixed={fixed} alt={author} />
+        </ProfileImageContainer>
       )}
       <Banner>
         <Logo src={logo} alt="logo" />
@@ -73,12 +75,16 @@ const Main = styled(Link)`
   }
 `
 
-const ProfileImage = styled(Img)`
-  margin-right: 16px;
-  margin-bottom: 0;
-  flex-shrink: 0;
+const ProfileImageContainer = styled.div`
   width: 54px;
   height: 54px;
+  margin-right: 16px;
+  flex-shrink: 0;
+  overflow: hidden;
+`
+
+const ProfileImage = styled(Img)`
+  margin-bottom: 0;
 `
 
 const Banner = styled.div`
