@@ -37,13 +37,9 @@ const AppHeaderHtml = ({
   useBlogLayout
 }) => (
   <HeaderHtml>
-    <Main to="/" title={`${title} home`}>
-      {useBlogLayout && (
-        <ProfileImageContainer>
-          <ProfileImage fixed={fixed} />
-        </ProfileImageContainer>
-      )}
-      <Banner>
+    <Main>
+      {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
+      <Banner to="/">
         <Logo src={logo} alt="logo" />
         <Author>{author}</Author>
         <Description>
@@ -61,11 +57,21 @@ const HeaderHtml = styled.header`
   margin-bottom: 64px;
 `
 
-const Main = styled(Link)`
+const Main = styled.div`
   display: flex;
   align-items: flex-start;
   font-size: 14px;
   margin-top: 0;
+`
+
+const ProfileImage = styled(Img)`
+  margin-bottom: 0;
+  margin-right: 16px;
+  flex-shrink: 0;
+`
+
+const Banner = styled(Link)`
+  display: block;
   box-shadow: none !important;
 
   &:hover {
@@ -73,23 +79,6 @@ const Main = styled(Link)`
       color: ${colors.accent};
     }
   }
-`
-
-const ProfileImageContainer = styled.span`
-  display: block;
-  width: 54px;
-  height: 54px;
-  margin-right: 16px;
-  flex-shrink: 0;
-  overflow: hidden;
-`
-
-const ProfileImage = styled(Img)`
-  margin-bottom: 0;
-`
-
-const Banner = styled.span`
-  display: block;
 `
 
 const Logo = styled.img`
