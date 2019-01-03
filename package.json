@@ -27,6 +27,7 @@
     "gatsby-remark-smartypants": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-source-graphql": "^2.0.8",
+    "gatsby-source-pluralsight": "^1.0.0",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.1.9",
     "prismjs": "^1.15.0",
@@ -41,7 +42,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 192.168.202.111",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""

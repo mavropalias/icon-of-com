@@ -1,12 +1,13 @@
 import React from 'react'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import colors from '../utils/colors'
+import { colors, rhythm } from '../utils/typography'
 
 import SEO from '../components/seo'
+import Pluralsight from '../components/pluralsight'
 
 const SEO_KEYWORDS = [
   `kostas mavropalias`,
@@ -17,48 +18,75 @@ const SEO_KEYWORDS = [
 ]
 
 const Page = ({ data }) => (
-  <div>
+  <React.Fragment>
     <SEO title="Profile" keywords={SEO_KEYWORDS} />
-    <ProfileImage fixed={data.avatar.childImageSharp.fixed} />
+    <ProfileImage
+      title={data.site.siteMetadata.author}
+      alt={`Photo of ${data.site.siteMetadata.author}`}
+      fixed={data.avatar.childImageSharp.fixed}
+    />
     <About />
-  </div>
+  </React.Fragment>
 )
 
 const ProfileImage = styled(Img)`
-  margin: 0 16px 4px 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  margin: 0 0 16px 0;
   flex-shrink: 0;
-  float: left;
-  border-radius: 100%;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
-    border-radius: 0;
+    float: left;
     margin: 0 32px 16px 0;
-    float: none;
   }
 `
 
 const About = () => (
-  <div>
+  <React.Fragment>
     <AboutParagraph>
       I have 18 years of hands-on experience developing complex web & mobile
       applications from the ground up, leading teams and delivering successful
       products.
     </AboutParagraph>
     <AboutParagraph>
-      I am a published author, work on numerous personal projects and maintain
-      an active interest in new and emerging technologies.
+      I am a{' '}
+      <a href="https://www.amazon.co.uk/gp/product/toc/1848721668/">
+        published author
+      </a>
+      , work on numerous personal projects and maintain an active interest in
+      new and emerging technologies.
     </AboutParagraph>
     <AboutParagraph>
-      My work has been featured on Lifehacker, Social Times, Kotaku, Tekzilla,
-      The Linux Action Show and The Web Designer’s Idea Book, among other online
-      and print publications.
+      My work has been featured on{' '}
+      <a href="http://lifehacker.com/5700199/penguspy-is-a-database-chock-full-of-games-for-linux">
+        Lifehacker
+      </a>
+      ,{' '}
+      <a href="https://www.adweek.com/socialtimes/social-media-research-project-calls-for-participants/3/">
+        Social Times
+      </a>
+      ,{' '}
+      <a href="http://kotaku.com/5700996/own-linux-you-can-play-all-these-games">
+        Kotaku
+      </a>
+      , Tekzilla ,{' '}
+      <a href="http://www.jupiterbroadcasting.com/2936/ubuntu-1010-review-las-s14e01/">
+        The Linux Action Show
+      </a>{' '}
+      and{' '}
+      <a href="https://www.amazon.co.uk/dp/B00OL40268">
+        The Web Designer’s Idea Book
+      </a>
+      , among other online and print publications.
     </AboutParagraph>
     <AboutParagraph>
       I am a passionate life-long learner and continually strive to expand and
-      deepen my knowledge in development and related fields. I hold a BSc in
-      Computer Science, MSc in Cyberpsychology and certificates in areas such as
-      Data Science, MongoDB, Deep Learning, Ethereum and Web Accessibility.
+      deepen my knowledge in software engineering, artificial intelligence and
+      other fields. I hold a BSc in Computer Science, MSc in Cyberpsychology and{' '}
+      <a href="https://www.linkedin.com/in/mavropalias/">certificates</a> in
+      areas such as Deep Learning, Data Science, MongoDB, Machine Learning,
+      Ethereum and Web Accessibility.
     </AboutParagraph>
+    <Pluralsight />
     <AboutParagraph>
       My technical skills include expert knowledge of JavaScript (ES6 &
       TypeScript), developing SPAs in React/Angular/Backbone, native mobile apps
@@ -72,17 +100,14 @@ const About = () => (
     <Footer>
       <em>Kostas Mavropalias, MSc. Dublin, Ireland.</em>
     </Footer>
-  </div>
+  </React.Fragment>
 )
 
 const AboutParagraph = styled.p`
-  max-width: 450px;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 16px;
+  max-width: ${rhythm(24)};
 
   ${MIN_MOBILE_MEDIA_QUERY} {
-    margin-right: 32px;
+    padding: 0 ${rhythm(3 / 4)};
   }
 `
 
@@ -99,18 +124,16 @@ const Footer = styled.footer`
 
 export const query = graphql`
   query {
-    map: file(absolutePath: { regex: "/map.png/" }) {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 313, height: 202) {
+        fixed(width: 256, height: 256) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 128, height: 128) {
-          ...GatsbyImageSharpFixed
-        }
+    site {
+      siteMetadata {
+        author
       }
     }
   }

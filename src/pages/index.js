@@ -14,7 +14,7 @@ const SEO_KEYWORDS = [
   `cyberpsychology`
 ]
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <React.Fragment>
     <SEO title="Home" keywords={SEO_KEYWORDS} />
     <MiniProfile />
@@ -22,15 +22,5 @@ const IndexPage = ({ data }) => (
     <BlogPosts />
   </React.Fragment>
 )
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default IndexPage
