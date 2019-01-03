@@ -1,12 +1,12 @@
 ---
-title: 8 tips for MobX with React
-date: '2019-01-01'
-spoiler: MobX tips
+title: Best practices for MobX with React
+date: '2019-01-03'
+spoiler: For those that are starting out with MobX.
 ---
 
-This is a list of things that I found useful, when I started out using MobX with React.
+This is a list of 8 useful tips and best practices for those that are starting out using MobX with React.
 
-It's not meant as an introduction to MobX and it assumes familiarity with [key MobX concepts](https://mobx.js.org/intro/overview.html).
+It's not meant as an introduction to MobX and it assumes familiarity with its [key concepts](https://mobx.js.org/intro/overview.html).
 
 ## 1. Start by modelling the observable state
 
