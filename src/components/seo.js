@@ -1,15 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, slug }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const twitterCard = slug ? 'summary_large_image' : 'summary'
+
         return (
           <Helmet
             htmlAttributes={{
@@ -21,6 +22,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               {
                 name: `description`,
                 content: metaDescription
+              },
+              {
+                name: `author`,
+                content: 'kostas'
               },
               {
                 property: `og:title`,
@@ -36,11 +41,15 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:card`,
-                content: `summary`
+                content: twitterCard
               },
               {
                 name: `twitter:creator`,
                 content: data.site.siteMetadata.author
+              },
+              {
+                name: `twitter:site`,
+                content: `@${data.site.siteMetadata.social.twitter}`
               },
               {
                 name: `twitter:title`,
@@ -51,6 +60,16 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription
               }
             ]
+              .concat(
+                slug
+                  ? {
+                      name: 'twitter-image',
+                      content: `${
+                        data.site.siteMetadata.siteUrl
+                      }${slug}twitter-card.jpg`
+                    }
+                  : []
+              )
               .concat(
                 keywords.length > 0
                   ? {
@@ -82,6 +101,10 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteUrl
+        social {
+          twitter
+        }
       }
     }
   }

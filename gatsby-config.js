@@ -10,7 +10,7 @@ module.exports = {
     description: 'Software Engineer, Author, Cyberpsychologist',
     blogDescription: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
     social: {
-      twitter: `https://twitter.com/mavropalias`,
+      twitter: `mavropalias`,
       github: `https://github.com/mavropalias`
     }
   },
@@ -91,7 +91,21 @@ module.exports = {
             }
           },
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
+          `gatsby-remark-smartypants`,
+          {
+            resolve: `gatsby-remark-social-cards`,
+            options: {
+              title: {
+                color: 'white' // black|white
+              },
+              meta: {
+                parts: ['iconof.com'],
+                color: 'white', // black|white
+                size: 16 // 16|24|32|48|64
+              },
+              background: '#3023ae' // Background color for the card
+            }
+          }
         ]
       }
     },

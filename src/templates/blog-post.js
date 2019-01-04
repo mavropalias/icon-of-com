@@ -45,6 +45,7 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
+          slug={post.fields.slug}
         />
         <h1 dangerouslySetInnerHTML={{ __html: post.frontmatter.title }} />
         <p
