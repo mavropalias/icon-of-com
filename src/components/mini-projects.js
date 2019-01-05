@@ -28,7 +28,6 @@ const MiniProjects = () => (
 
 const Container = styled.section`
   background: linear-gradient(135deg, #3023ae, #c86dd7);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
   margin-left: -16px;
   margin-right: -16px;
   margin-bottom: 64px;
@@ -36,15 +35,14 @@ const Container = styled.section`
   color: white;
   position: relative;
   transition: all 0.2s ease-in-out;
-  border-radius: 4px;
   position: relative;
   overflow: hidden;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
     margin-left: -32px;
     margin-right: -32px;
     padding: 32px;
-    border-radius: 0;
   }
 `
 
