@@ -6,19 +6,21 @@ import styled from 'styled-components'
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 
 import { colors } from '../utils/typography'
+import Stars from './stars'
 
 const MiniProjects = () => (
   <StaticQuery
     query={query}
     render={data => (
       <Container>
+        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
+        <Stars />
         <StyledH2>Projects</StyledH2>
         <Projects>
           {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
         </Projects>
-        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
       </Container>
     )}
   />
@@ -36,19 +38,13 @@ const Container = styled.section`
   transition: all 0.2s ease-in-out;
   border-radius: 4px;
   position: relative;
+  overflow: hidden;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     margin-left: -32px;
     margin-right: -32px;
     padding: 32px;
     border-radius: 0;
-
-    &:hover {
-      margin-left: -128px;
-      margin-right: -128px;
-      padding: 32px 128px;
-      border-radius: 4px;
-    }
   }
 `
 
@@ -115,7 +111,6 @@ const ProjectLink = styled.a`
   box-shadow: none;
   padding: 16px 16px 12px;
   color: inherit;
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     background: rgb(165, 219, 237);
