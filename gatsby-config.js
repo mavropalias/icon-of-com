@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: `https://iconof.com`,
     author: `Kostas Mavropalias`,
     description: 'Software Engineer, Author, Cyberpsychologist',
-    blogDescription: `My thoughts on Software Engineering, Deep Learning, User Experience & Cyberpsychology.`,
+    blogDescription: `My thoughts on Software Engineering, AI, User Experience & Cyberpsychology.`,
     social: {
       twitter: `mavropalias`,
       github: `https://github.com/mavropalias`
