@@ -102,14 +102,14 @@ const query = graphql`
   query {
     map: file(relativePath: { eq: "map.png" }) {
       childImageSharp {
-        fixed(width: 313, height: 202) {
-          ...GatsbyImageSharpFixed_withWebp
+        fixed(width: 313, height: 202, quality: 70) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
     avatar: file(relativePath: { eq: "profile-pic.jpg" }) {
       childImageSharp {
-        fixed(width: 80, height: 80) {
+        fixed(width: 80, height: 80, quality: 30) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }

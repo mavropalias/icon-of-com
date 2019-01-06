@@ -161,7 +161,7 @@ const query = graphql`
   query {
     background: file(relativePath: { eq: "cosmos.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 990) {
+        fluid(maxWidth: 990, quality: 30) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

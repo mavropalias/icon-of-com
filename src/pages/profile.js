@@ -126,7 +126,7 @@ export const query = graphql`
   query {
     avatar: file(relativePath: { eq: "profile-pic.jpg" }) {
       childImageSharp {
-        fixed(width: 256, height: 256) {
+        fixed(width: 256, height: 256, quality: 50) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
