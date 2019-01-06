@@ -162,7 +162,7 @@ const query = graphql`
     background: file(absolutePath: { regex: "/cosmos.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 990) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
