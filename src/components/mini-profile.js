@@ -100,14 +100,14 @@ const StyledLink = styled(Link)`
 
 const query = graphql`
   query {
-    map: file(absolutePath: { regex: "/map.png/" }) {
+    map: file(relativePath: { eq: "map.png" }) {
       childImageSharp {
         fixed(width: 313, height: 202) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(relativePath: { eq: "profile-pic.jpg" }) {
       childImageSharp {
         fixed(width: 80, height: 80) {
           ...GatsbyImageSharpFixed_withWebp

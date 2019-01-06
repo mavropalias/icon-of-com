@@ -159,7 +159,7 @@ const ProjectTopic = styled.li`
 
 const query = graphql`
   query {
-    background: file(absolutePath: { regex: "/cosmos.jpg/" }) {
+    background: file(relativePath: { eq: "cosmos.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 990) {
           ...GatsbyImageSharpFluid_withWebp

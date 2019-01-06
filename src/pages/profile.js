@@ -124,7 +124,7 @@ const Footer = styled.footer`
 
 export const query = graphql`
   query {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(relativePath: { eq: "profile-pic.jpg" }) {
       childImageSharp {
         fixed(width: 256, height: 256) {
           ...GatsbyImageSharpFixed_withWebp
