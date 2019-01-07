@@ -249,21 +249,21 @@ Provide one or more stores in a parent component:
 
 `Inject` takes _provided_ items from context and makes them available as `props`.
 
-For example, `inject('uiStore')` will take `uiStore` from the context and make it available as `this.props.uiStore`:
+For example, `inject('productStore')` will take `productStore` from the context and make it available as `this.props.productStore`:
 
 ```js
 // inject in class component
-@inject('uiStore')
+@inject('productStore')
 @observer
 class Items extends React.Component {
   render() {
-    return <span>{this.props.uiStore.itemCount}</span>
+    return <span>{this.props.productStore.itemCount}</span>
   }
 }
 
 // inject in function component
-const Items = inject('uiStore')(
-  observer(({ uiStore }) => <span>{uiStore.itemCount}</span>)
+const Items = inject('productStore')(
+  observer(({ productStore }) => <span>{productStore.itemCount}</span>)
 )
 ```
 
