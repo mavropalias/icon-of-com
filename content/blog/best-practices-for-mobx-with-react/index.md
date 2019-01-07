@@ -223,25 +223,47 @@ When you want to use a store in one of your React components, you can just impor
 
 That works fine, but there are downsides:
 
-- It's **harder to test**.
-- The code is **less declarative**; the store can get lost in a list of imports.
-- It's **non-standard**, so makes it harder for other team members to understand.
+- It's **not idiomatic** MobX. You're using a tool, but deviate from its recommended way of doing things. This might confusion to team members and future code-maintainers.
 
-The recommended approach is to use `inject` (you'll also need to _provide_ the store in a parent component `<Provider store='store'>`):
+- It's **less declarative**. Instead of deliberately injecting a _store_, you're importing _some_ module.
+- It's **harder to test**.
+- It's **harder to do server-side-rendering**.
+
+You might have a reason for not using import; make sure it's a _good_ reason.
+
+The recommended approach is to use `Provider` and `inject`--two components provided by [mobx-react](https://github.com/mobxjs/mobx-react).
+
+> `Provider` is a component that can pass stores (or other stuff), using React's [context API](https://reactjs.org/docs/context.html), to child components. This is useful if you have things that you don't want to pass through multiple layers of components explicitly.
+
+> `inject` can be used to pick up those stores. It is a higher order component that takes a list of strings and makes those stores available to the wrapped component.
+
+Provide one or more stores in a parent component:
 
 ```js
-// inject with class component
-@inject('store')
+...
+<Provider productStore="ProductStore" uiStore="UiStore">
+  <div>{children}</div>
+</Provider>
+...
+```
+
+`Inject` takes _provided_ items from context and makes them available as `props`.
+
+For example, `inject('uiStore')` will take `uiStore` from the context and make it available as `this.props.uiStore`:
+
+```js
+// inject in class component
+@inject('uiStore')
 @observer
 class Button extends React.Component {
   render() {
-    return <span>{this.props.store.message}</span>
+    return <span>{this.props.uiStore.label}</span>
   }
 }
 
-// inject with function component
-const Button = inject('store')(
-  observer(({ store }) => <span>{store.message}</span>)
+// inject in function component
+const Button = inject('uiStore')(
+  observer(({ uiStore }) => <span>{uiStore.label}</span>)
 )
 ```
 
