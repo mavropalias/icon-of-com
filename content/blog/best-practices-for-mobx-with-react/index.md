@@ -255,15 +255,15 @@ For example, `inject('uiStore')` will take `uiStore` from the context and make i
 // inject in class component
 @inject('uiStore')
 @observer
-class Button extends React.Component {
+class Items extends React.Component {
   render() {
-    return <span>{this.props.uiStore.label}</span>
+    return <span>{this.props.uiStore.itemCount}</span>
   }
 }
 
 // inject in function component
-const Button = inject('uiStore')(
-  observer(({ uiStore }) => <span>{uiStore.label}</span>)
+const Items = inject('uiStore')(
+  observer(({ uiStore }) => <span>{uiStore.itemCount}</span>)
 )
 ```
 
