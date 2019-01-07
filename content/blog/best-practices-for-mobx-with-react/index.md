@@ -241,7 +241,7 @@ Provide one or more stores in a parent component:
 
 ```js
 ...
-<Provider productStore="ProductStore" uiStore="UiStore">
+<Provider productStore={ProductStore} uiStore={UiStore}>
   <div>{children}</div>
 </Provider>
 ...
