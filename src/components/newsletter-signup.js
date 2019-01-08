@@ -101,6 +101,7 @@ const Button = styled.button`
   padding: ${rhythm(1 / 8)} ${rhythm(1 / 2)};
   margin: 0;
   background: rgb(165, 219, 237);
+  border: 0;
   color: ${colors.primary};
 
   &:hover {
