@@ -76,6 +76,8 @@ const Form = styled.form`
   align-items: flex-start;
   margin: 0;
   transition: all 0.2s ease-in-out;
+  z-index: 1;
+  position: relative;
 
   &.success {
     transform: translate(0, -64px);
@@ -98,22 +100,32 @@ const P = styled.p`
 const Button = styled.button`
   padding: ${rhythm(1 / 8)} ${rhythm(1 / 2)};
   margin: 0;
+  background: rgb(165, 219, 237);
+  color: ${colors.primary};
+
+  &:hover {
+    background: rgb(165, 219, 237);
+    box-shadow: 0 8px 16px rgba(48, 35, 174, 0.8);
+  }
 `
 
 const Input = styled.input`
   margin: 0 0 ${rhythm(1 / 4)};
   padding: ${rhythm(1 / 8)} ${rhythm(1 / 2)};
   width: 100%;
+  border: none;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     width: auto;
-    min-width: 75%;
+    min-width: 50%;
   }
 `
 
 const Result = styled.div`
   margin-top: 32px;
   transition: all 0.2s ease-in-out;
+  z-index: 1;
+  position: relative;
 
   &.success {
     margin-top: 0;

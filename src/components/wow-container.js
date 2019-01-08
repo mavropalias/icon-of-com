@@ -12,9 +12,9 @@ const WowContainer = ({ children }) => (
     query={query}
     render={data => (
       <StyledWowContainer>
+        {children}
         <BackgroundImage fluid={data.background.childImageSharp.fluid} />
         <Stars />
-        {children}
       </StyledWowContainer>
     )}
   />
