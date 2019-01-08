@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-// import Bio from '../components/bio'
 import SEO from '../components/seo'
+import NewsletterSignup from '../components/newsletter-signup'
 import { rhythm, scale, colors } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
@@ -36,12 +36,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
 
     return (
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: rhythm(24)
-        }}
-      >
+      <div style={{ margin: `0 auto`, maxWidth: rhythm(24) }}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
@@ -60,7 +55,11 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}, {post.timeToRead} min read
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div id="disqus_thread" />
+        <a href={`https://twitter.com/search?q=iconof.com${post.fields.slug}`}>
+          Discuss on Twitter
+        </a>
+        <NewsletterSignup />
+        <div id="disqus_thread" style={{ marginTop: '64px' }} />
       </div>
     )
   }

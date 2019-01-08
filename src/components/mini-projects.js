@@ -1,62 +1,27 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 
 import { colors } from '../utils/typography'
-import Stars from './stars'
+import WowContainer from './wow-container'
 
 const MiniProjects = () => (
   <StaticQuery
     query={query}
     render={data => (
-      <Container>
-        <BackgroundImage fluid={data.background.childImageSharp.fluid} />
-        <Stars />
+      <WowContainer>
         <StyledH2>Projects</StyledH2>
         <Projects>
           {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
         </Projects>
-      </Container>
+      </WowContainer>
     )}
   />
 )
-
-const Container = styled.section`
-  background: linear-gradient(135deg, #3023ae, #c86dd7);
-  margin-left: -16px;
-  margin-right: -16px;
-  margin-bottom: 64px;
-  padding: 32px 16px;
-  color: white;
-  position: relative;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-  overflow: hidden;
-
-  ${MIN_MOBILE_MEDIA_QUERY} {
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-    margin-left: -32px;
-    margin-right: -32px;
-    padding: 32px;
-  }
-`
-
-const BackgroundImage = styled(Img)`
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: lighten;
-  pointer-events: none;
-`
 
 const StyledH2 = styled.h2`
   margin: 0 0 32px;

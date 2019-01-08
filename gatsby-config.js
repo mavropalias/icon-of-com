@@ -30,6 +30,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://iconof.us7.list-manage.com/subscribe/post?u=0dc964b01aa2ffbec3bc10172&amp;id=9a0972c8fe'
+      }
+    },
+    {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'GitHub',
