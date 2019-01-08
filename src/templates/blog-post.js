@@ -55,7 +55,11 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}, {post.timeToRead} min read
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <a href={`https://twitter.com/search?q=iconof.com${post.fields.slug}`}>
+        <a
+          href={`https://twitter.com/search?f=tweets&vertical=default&q=iconof.com${
+            post.fields.slug
+          }`}
+        >
           Discuss on Twitter
         </a>
         <NewsletterSignup />
