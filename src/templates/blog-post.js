@@ -36,7 +36,10 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
 
     return (
-      <div style={{ margin: `0 auto`, maxWidth: rhythm(24) }}>
+      <article
+        className="blog-article"
+        style={{ margin: `0 auto`, maxWidth: rhythm(24) }}
+      >
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.spoiler}
@@ -64,7 +67,7 @@ class BlogPostTemplate extends React.Component {
         </a>
         <NewsletterSignup />
         <div id="disqus_thread" style={{ marginTop: '64px' }} />
-      </div>
+      </article>
     )
   }
 }
