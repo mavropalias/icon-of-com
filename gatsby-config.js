@@ -91,14 +91,13 @@ module.exports = {
               rel: 'nofollow'
             }
           },
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               inlineCodeMarker: '±'
             }
           },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
           {
             resolve: `gatsby-remark-social-cards`,
             options: {
@@ -112,7 +111,9 @@ module.exports = {
               },
               background: '#3023ae' // Background color for the card
             }
-          }
+          },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`
         ]
       }
     },
