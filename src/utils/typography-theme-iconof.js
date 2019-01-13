@@ -38,6 +38,9 @@ const theme = {
   bodyWeight: 400,
   boldWeight: 700,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+    '.blog-article h3': {
+      color: colors.secondary
+    },
     blockquote: {
       ...scale(1 / 5),
       color: gray(41),
