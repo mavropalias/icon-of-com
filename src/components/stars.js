@@ -614,7 +614,7 @@ const StyledStars = styled.div`
 
   @keyframes animStar {
     from {
-      transform: translateY(0px);
+      transform: translateY(-500px);
     }
     to {
       transform: translateY(-2000px);
