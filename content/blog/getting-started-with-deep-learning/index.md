@@ -68,7 +68,9 @@ You don't need to do a deep-dive in Python. Just get a good understanding of the
 
 ### Deep Learning with JavaScript
 
-Eventually, you'll find out that you can do some Deep Learning in JavaScript with [Tensorflow.js](https://js.tensorflow.org) (and if that's too low-level for you, hold your tensors, [there's an abstraction for it](https://ml5js.org/)) and [Brain.js](https://github.com/BrainJS/brain.js).
+Why even mention JavaScript, in a article about Deep Learning? Mainly due to its meteoric rise in [popularity](https://insights.stackoverflow.com/survey/2018#most-popular-technologies) across the full-stack. Many developers are familiar with it and its a great, low-barrier, entry into DL.
+
+You can now do some Deep Learning in JavaScript with [Tensorflow.js](https://js.tensorflow.org) (and if that's too low-level for you, hold your tensors, [there's an abstraction for it](https://ml5js.org/)) and [Brain.js](https://github.com/BrainJS/brain.js).
 
 If JavaScript is your thing, **this is the path of least resistance** to get your feet wet. You can experiment with these libraries and be amazed with what you can achieve with a few lines of JS. Here is a [course for Tensorflow.js](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YIeVA3dNxbR9PYj4wV31oQ) and [one for Brain.js](https://scrimba.com/g/gneuralnetworks). There is also a [Deep Learning with JavaScript](https://www.manning.com/books/deep-learning-with-javascript) book, by the authors of TensorFlow.
 
@@ -87,30 +89,39 @@ As the [JavaScript DL ecosystem](https://github.com/josephmisiti/awesome-machine
 
 Similarly, to play piano you don't need to understand the physics of how strings vibrate and produce sound when they are hit by a hammer. **That knowledge will give you a better appreciation of piano's internals, but you can play piano regardless**.
 
-So, don't worry too much about maths--it's not going to be a blocker. Most courses listed in the upcoming sections include a refresher on linear algebra and probability theory to help you understand the underlying concepts. Later, you will be using libraries that handle all that stuff for you.
+Deep Learning is a vast field and you can work in it in many different ways. Like software engineering, there are many layers of abstraction where each layer requires different skills.
 
-If you're not planning on doing research, reading papers, writing your own DL library, or inventing new techniques and methodologies, you'll be fine.
+On the lower levels you have:
+
+- Research scientists that push the boundaries of Deep Learning, invent new techniques and methodologies, and write papers with their findings ([Deepmind](https://deepmind.com), [IBM Watson](https://www.ibm.com/watson/), etc).
+- Authors of tools like Tensorflow and PyTorch and cloud services like [Google Cloud AI](https://cloud.google.com/products/ai/) and [Amazon SageMaker](https://aws.amazon.com/sagemaker/).
+
+In you want to do that stuff, you absolutely need strong mathematical knowledge.
+
+If not, at least in the beginning, then don't worry. Most courses listed in the upcoming sections include a refresher on linear algebra and probability theory to help you understand the underlying concepts. Later, you will probably be using libraries that handle all that stuff for you.
 
 I _do_ recommend doing the hard work, though. Spruce up your maths and try to understand how ML and DL work under the hood **because it's just so interesting**.
 
 My favourite learning resource for maths, is [Khan Academy](https://www.khanacademy.org/math).
 
-When you get to linear algebra--or if you're still intimidated by it and are looking for some intuition--do yourself a **favour for life** and check out this masterpiece: [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) series, by 3Blue1Brown on YouTube.
+When you get to linear algebra--or if you're still intimidated by it and are looking for some intuition--do yourself a favour and check out this masterpiece: [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) series, by 3Blue1Brown on YouTube.
 
-More free resources:
+If you want to dig deeper, here are some free resources:
 
+1. [Derivatives of multivariable functions](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) by Khan Academy
+1. [Linera Algebra](https://www.youtube.com/watch?v=ZK3O402wf1c&list=PLE7DDD91010BC51F8) by Prof. Gilbert Strang (MIT)
 1. [Linear Algebra Refresher course (with Python)](https://eu.udacity.com/course/linear-algebra-refresher-course--ud953) by Udacity
-2. [Derivatives of multivariable functions](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) by Khan Academy
+1. [Mathematics for Machine Learning Specialization](https://www.coursera.org/specializations/mathematics-machine-learning) by Imperial College London (Coursera)
 
 ## Data Science courses
 
-One of the challenges in DL is working with data. As mentioned earlier, expect to spend much of your time gathering, cleaning up and preparing data with [Pandas](https://pandas.pydata.org/)/[Jupyter Notebooks](https://jupyter.org)/etc for your models.
+One of the challenges in Deep Learning is working with data. As mentioned earlier, expect to spend much of your time gathering, cleaning up and preparing data with [Pandas](https://pandas.pydata.org/)/[Jupyter Notebooks](https://jupyter.org)/etc for your models.
 
 For that reason, a good understanding of Python's data science toolbox will be beneficial to your DL workflow.
 
 Here are a few resources that I found useful. They're not of critical importance as you're starting out with Deep Learning. Keep them in mind for later use, when you feel there are gaps in your knowledge that you need to fill.
 
-1. The [Data Scientist with Python](https://www.datacamp.com/tracks/data-scientist-with-python) DataCamp career-track is good. It will cover all the bases (including introduction to Python) but it's not free and lengthy--it took me a little less than a month to complete.
+1. The [Data Scientist with Python](https://www.datacamp.com/tracks/data-scientist-with-python) DataCamp career-track is good. It will cover all the bases (including introduction to Python) but it's not free and will take some time out of your main studies--it took me a little less than a month to complete.
    <br/><br/>
    Check out their [Cleaning Data in Python](https://www.datacamp.com/courses/cleaning-data-in-python) and [Pandas Foundations](https://www.datacamp.com/courses/pandas-foundations) courses for more succinct alternatives.
 
@@ -120,7 +131,7 @@ Here are a few resources that I found useful. They're not of critical importance
 
 Before starting with DL courses and getting bombarded with new terminology and concepts, let's take some of the unknowns out to lessen the load.
 
-Generally, a DL course will teach you fundamental concepts such as the [backpropagation algorithm](https://www.youtube.com/watch?v=Ilg3gGewQ5U), [Neural Networks](https://www.youtube.com/watch?v=aircAruvnKk)(NN) and Deep Neural Networks (DNN) like RNNs, CNNs, GANS, etc. It will probably include homework where you'll have to implement some of that yourself, from scratch.
+Generally, a DL course will teach you fundamental concepts such as the [backpropagation algorithm](https://www.youtube.com/watch?v=Ilg3gGewQ5U), [Neural Networks](https://www.youtube.com/watch?v=aircAruvnKk)(NN) and Deep Neural Networks (DNN) like RNNs and CNNs. It will probably include homework where you'll have to implement some of that yourself, from scratch.
 
 That's great for learning and you should absolutely do it. Frameworks will abstract that functionality in an heavily optimised, efficient way. When working with abstractions of _things_, it's beneficial to have an understanding of the _thing_. That gives you a powerful and valuable insight into the system you are working on.
 
@@ -135,7 +146,7 @@ I would recommend sticking with PyTorch/FastAI or TensorFlow/Keras--all courses 
 
 ## Deep Learning courses
 
-Knowledge of Machine Learning is beneficial before starting with Deep Learning courses. You can prepare with _the_ [Machine Learning](https://www.coursera.org/learn/machine-learning) course (free), by Andrew Ng. His ability to teach complex topics in an accessible and reassuring way is truly remarkable. Alternatively, for a brief introduction see [Kaggle's 4-hour Machine Learning](https://www.kaggle.com/learn/machine-learning) course (free).
+Knowledge of Machine Learning is beneficial before starting with Deep Learning courses. You can prepare with THE [Machine Learning course](https://www.coursera.org/learn/machine-learning) (free), by Andrew Ng. His ability to teach complex topics in an accessible and reassuring way is truly remarkable. Alternatively, for a brief introduction see [Kaggle's 4-hour Machine Learning](https://www.kaggle.com/learn/machine-learning) course (free).
 
 I also want to bring [Neural Networks and Deep Learning, by Michael Nielsen](http://neuralnetworksanddeeplearning.com) (free) into this section, although it's an online book and not a course. It is a great learning resource that will teach you many of the core concepts behind NN and DL.
 
@@ -181,7 +192,7 @@ Certificate: **Yes**
 `vimeo:https://vimeo.com/239555907`
 In this program, you’ll cover Convolutional and Recurrent Neural Networks, Generative Adversarial Networks, Deployment, and more. You’ll use PyTorch, and have access to GPUs to train models faster. You'll learn from promiment people in the DL field like Sebastian Thrun, Ian Goodfellow, Jun-Yan Zhu, and Andrew Trask.
 
-This is the only non-free course that I recommend. It's also the closest you can get to a structured college course.
+This is the only non-free course that I recommend. It's also the closest you can get to a structured college course. Your employer might be willing to pay it for you, ask them--it has worked for me in the past.
 
 #### 4. [Move 37 - Deep Reinforcement Learning](https://www.theschool.ai/courses/move-37-course/)
 
@@ -206,41 +217,73 @@ Certificate: **No**
 
 Learn the latest developments in Deep Learning, how to read and implement new academic papers, and how to solve challenging end-to-end problems such as natural language translation. You'll develop a deep understanding of neural network foundations, the most important recent advances in the fields, and how to implement them in the world's fastest deep learning libraries, fastai and pytorch.
 
+#### 6. [Convolutional Neural Networks for Visual Recognition (CS231n)](http://cs231n.stanford.edu)
+
+Provider: **[Stanford University](https://stanford.edu/)<br/>**
+Focus: **Computer Vision**<br/>
+Duration: **10 weeks**<br/>
+Level: **Advanced**<br/>
+Cost: **Free**<br/>
+Certificate: **No**
+
+Computer Vision has become ubiquitous in our society, with applications in search, image understanding, apps, mapping, medicine, drones, and self-driving cars. Core to many of these applications are visual recognition tasks such as image classification, localization and detection. This course is a deep dive into details of the deep learning architectures with a focus on learning end-to-end models for these tasks, particularly image classification. During the 10-week course, students will learn to implement, train and debug their own neural networks and gain a detailed understanding of cutting-edge research in computer vision.
+
+The course focuses on teaching how to set up the problem of image recognition, the learning algorithms (e.g. backpropagation), practical engineering tricks for training and fine-tuning the networks and guide the students through hands-on assignments and a final course project. Much of the background and materials of this course will be drawn from the [ImageNet Challenge](http://image-net.org/challenges/LSVRC/2014/index).
+
+The course material (including lecture videos) are available for free.
+
+#### 7. [Deep Learning for Natural Language Processing](https://github.com/oxford-cs-deepnlp-2017/lectures)
+
+Provider: **[University of Oxford](https://www.cs.ox.ac.uk/)<br/>**
+Focus: **Language**<br/>
+Duration: **n/a**<br/>
+Level: **Advanced**<br/>
+Cost: **Free**<br/>
+Certificate: **No**
+
+This is an advanced course on natural language processing. Automatically processing natural language inputs and producing language outputs is a key component of Artificial General Intelligence. The ambiguities and noise inherent in human communication render traditional symbolic AI techniques ineffective for representing and analysing language data. Recently statistical techniques based on neural networks have achieved a number of remarkable successes in natural language processing leading to a great deal of commercial and academic interest in the field.
+
+This is an applied course focussing on recent advances in analysing and generating speech and text using recurrent neural networks. The course covers a range of applications of neural networks in NLP including analysing latent dimensions in text, transcribing speech to text, translating between languages, and answering questions.
+
+The course material (including lecture videos) are available online for free.
+
 ## More Deep Learning resources
 
 The following is a list of helpful and interesting resources to further your knowledge in Deep Learning.
 
-### Articles
+### Articles & Papers
 
+1. [A guide to convolution arithmetic for deep learning](https://arxiv.org/abs/1603.07285)
 1. [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-2. [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)--also check his [other articles](http://colah.github.io/)
+1. [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)--also check his [other articles](http://colah.github.io/)
 
 ### Books
 
 1. [Deep Learning](http://www.deeplearningbook.org): You will find many mentions of "The Deep Learning book" during your studies. This is it; an _advanced_ resource for students and practitioners of DL.
-2. [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python): An excellent introduction to DL, written by the creator of Keras.
-3. [Machine Learning Yearning, by Andrew Ng](http://www.mlyearning.org): This book is focused not on teaching you ML algorithms, but on how to make ML algorithms work. Some technical AI classes will give you a hammer; this book teaches you how to use the hammer. If you aspire to be a technical leader in AI and want to learn how to set direction for your team, this book will help.
-4. [Natural Language Processing with Python](https://www.nltk.org/book/): It provides a highly accessible, practical, introduction to the field of NLP.
+1. [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python): An excellent introduction to DL, written by the creator of Keras.
+1. [Machine Learning Yearning, by Andrew Ng](http://www.mlyearning.org): This book is focused not on teaching you ML algorithms, but on how to make ML algorithms work. Some technical AI classes will give you a hammer; this book teaches you how to use the hammer. If you aspire to be a technical leader in AI and want to learn how to set direction for your team, this book will help.
+1. [Natural Language Processing with Python](https://www.nltk.org/book/): It provides a highly accessible, practical, introduction to the field of NLP.
 
 ### Social media
 
 1. [Articifial Intelligence & Deep Learning](https://www.facebook.com/groups/DeepNetGroup/) Facebook group
-2. [Deep Learning](https://www.facebook.com/groups/DeepLearnng/) Facebook group
-3. [r/LearnMachineLearning](https://reddit.com/r/learnmachinelearning/) subreddit
-4. [r/MachineLearning](https://reddit.com/r/MachineLearning/) subreddit
+1. [Deep Learning](https://www.facebook.com/groups/DeepLearnng/) Facebook group
+1. [r/LearnMachineLearning](https://reddit.com/r/learnmachinelearning/) subreddit
+1. [r/MachineLearning](https://reddit.com/r/MachineLearning/) subreddit
 
 ### Websites
 
-1. [Google AI](https://ai.google): AI-related stories, research, education and tools, from Google.
-2. [Kaggle](https://www.kaggle.com): _The_ place for data science projects and competitions. If you are looking to get your hands on a number of DL projects, look no further. They also have a set of [brief learning courses](https://www.kaggle.com/learn/overview).
-3. [Machine Learning Mastery](https://machinelearningmastery.com/start-here/): An accessible learning resource for all areas of ML and DL.
+1. [Deepmind](https://deepmind.com/): A world leader in AI research--you might have heard of their [Alpha Go project](https://deepmind.com/research/alphago/). Their website contains lots of interesting material.
+1. [Google AI](https://ai.google): AI-related stories, research, education and tools from Google.
+1. [Kaggle](https://www.kaggle.com): _The_ place for data science projects and competitions. If you are looking to get your hands on a number of DL projects, look no further. They also have a set of [brief learning courses](https://www.kaggle.com/learn/overview).
+1. [Machine Learning Mastery](https://machinelearningmastery.com/start-here/): An accessible learning resource for all areas of ML and DL.
 
 ### YouTube channels
 
 1. [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw): As discussed earlier, this is an excellent learning resource for linear algebra, calculus, neural networks and more.
-2. [Rachel Thomas](https://www.youtube.com/channel/UC_pSCYWbMn4JcsxbWOzkgEQ): High quality, Deep Learning related talks, by the founder of Fast.ai.
-3. [Siraj Raval](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A): Very accessible and educational material on DL and related areas.
-4. [Two Minute Papers, by Károly Zsolnai-Fehér](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg): Károly spends hours reading the latest research literature so that we can _watch_ the most interesting papers in his amazing two-minute videos.
+1. [Rachel Thomas](https://www.youtube.com/channel/UC_pSCYWbMn4JcsxbWOzkgEQ): High quality, Deep Learning related talks, by the founder of Fast.ai.
+1. [Siraj Raval](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A): Very accessible and educational material on DL and related areas.
+1. [Two Minute Papers, by Károly Zsolnai-Fehér](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg): Károly spends hours reading the latest research literature so that we can _watch_ the most interesting papers in his amazing two-minute videos.
 
 ## Conclusion
 
