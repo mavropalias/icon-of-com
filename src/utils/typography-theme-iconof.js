@@ -41,6 +41,10 @@ const theme = {
     '.blog-article h3': {
       color: colors.secondary
     },
+    '.blog-article h4': {
+      lineHeight: 1.8,
+      marginBottom: '1.25rem'
+    },
     blockquote: {
       ...scale(1 / 5),
       color: gray(41),
