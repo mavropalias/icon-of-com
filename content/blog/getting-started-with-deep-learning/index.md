@@ -67,7 +67,7 @@ You don't need to do a deep-dive in Python. Just get a good understanding of the
 
 ### Deep Learning with JavaScript
 
-Why even mention JavaScript, in a article about Deep Learning? Mainly due to its meteoric rise in [popularity](https://insights.stackoverflow.com/survey/2018#most-popular-technologies) across the full-stack. Many developers are familiar with it and it's a great, low-barrier, entry into DL.
+Why even mention JavaScript, in a article about Deep Learning? Mainly due to its meteoric rise in [popularity](https://insights.stackoverflow.com/survey/2018#most-popular-technologies) across the full-stack. Many developers are familiar with JS and it's a great, low-barrier, entry into DL.
 
 You can now do some Deep Learning in JavaScript with [Tensorflow.js](https://js.tensorflow.org) (and if that's too low-level for you, hold your tensors, [there's an abstraction for it](https://ml5js.org/)) and [Brain.js](https://github.com/BrainJS/brain.js).
 
