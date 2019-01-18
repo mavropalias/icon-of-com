@@ -28,6 +28,10 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
                 content: 'kostas'
               },
               {
+                property: `og:url`,
+                content: `${data.site.siteMetadata.siteUrl}${slug}`
+              },
+              {
                 property: `og:title`,
                 content: title
               },
@@ -62,12 +66,20 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
             ]
               .concat(
                 slug
-                  ? {
-                      name: 'twitter-image',
-                      content: `${
-                        data.site.siteMetadata.siteUrl
-                      }${slug}twitter-card.jpg`
-                    }
+                  ? [
+                      {
+                        name: 'twitter-image',
+                        content: `${
+                          data.site.siteMetadata.siteUrl
+                        }${slug}twitter-card.jpg`
+                      },
+                      {
+                        name: 'og:image',
+                        content: `${
+                          data.site.siteMetadata.siteUrl
+                        }${slug}twitter-card.jpg`
+                      }
+                    ]
                   : []
               )
               .concat(
