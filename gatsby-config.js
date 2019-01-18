@@ -6,6 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `IconOf.com`,
     siteUrl: `https://iconof.com`,
+    siteUrlHttp: `http://iconof.com`,
     author: `Kostas Mavropalias`,
     description: 'Software Engineer, Author, Cyberpsychologist',
     blogDescription: `My thoughts on Software Engineering, AI, User Experience & Cyberpsychology.`,
