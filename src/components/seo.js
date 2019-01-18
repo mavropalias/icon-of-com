@@ -13,40 +13,20 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
 
         return (
           <Helmet
-            htmlAttributes={{
-              lang
-            }}
+            htmlAttributes={{ lang }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             meta={[
-              {
-                name: `description`,
-                content: metaDescription
-              },
-              {
-                name: `author`,
-                content: 'kostas'
-              },
+              { name: `description`, content: metaDescription },
+              { name: `author`, content: 'kostas' },
               {
                 property: `og:url`,
                 content: `${data.site.siteMetadata.siteUrl}${slug}`
               },
-              {
-                property: `og:title`,
-                content: title
-              },
-              {
-                property: `og:description`,
-                content: metaDescription
-              },
-              {
-                property: `og:type`,
-                content: `website`
-              },
-              {
-                name: `twitter:card`,
-                content: twitterCard
-              },
+              { property: `og:title`, content: title },
+              { property: `og:description`, content: metaDescription },
+              { property: `og:type`, content: `website` },
+              { name: `twitter:card`, content: twitterCard },
               {
                 name: `twitter:creator`,
                 content: `@${data.site.siteMetadata.social.twitter}`
@@ -55,14 +35,8 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
                 name: `twitter:site`,
                 content: `@${data.site.siteMetadata.social.twitter}`
               },
-              {
-                name: `twitter:title`,
-                content: title
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription
-              }
+              { name: `twitter:title`, content: title },
+              { name: `twitter:description`, content: metaDescription }
             ]
               .concat(
                 slug
@@ -74,9 +48,9 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
                         }${slug}twitter-card.jpg`
                       },
                       {
-                        name: 'og:image',
+                        name: 'og:image:secure_url',
                         content: `${
-                          data.site.siteMetadata.siteUrlHttp
+                          data.site.siteMetadata.siteUrl
                         }${slug}twitter-card.jpg`
                       }
                     ]
@@ -84,10 +58,7 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
               )
               .concat(
                 keywords.length > 0
-                  ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `)
-                    }
+                  ? { name: `keywords`, content: keywords.join(`, `) }
                   : []
               )
               .concat(meta)}
