@@ -70,13 +70,13 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
                       {
                         name: 'twitter-image',
                         content: `${
-                          data.site.siteMetadata.siteUrl
+                          data.site.siteMetadata.siteUrlHttp
                         }${slug}twitter-card.jpg`
                       },
                       {
                         name: 'og:image',
                         content: `${
-                          data.site.siteMetadata.siteUrl
+                          data.site.siteMetadata.siteUrlHttp
                         }${slug}twitter-card.jpg`
                       }
                     ]
@@ -114,6 +114,7 @@ const detailsQuery = graphql`
         description
         author
         siteUrl
+        siteUrlHttp
         social {
           twitter
         }
