@@ -47,6 +47,13 @@ function SEO({ description, lang, meta, keywords, title, slug }) {
                           data.site.siteMetadata.siteUrlHttp
                         }${slug}twitter-card.jpg`
                       },
+                      { name: 'og:image:type', content: 'image/jpeg' },
+                      {
+                        name: 'og:image',
+                        content: `${
+                          data.site.siteMetadata.siteUrlHttp
+                        }${slug}twitter-card.jpg`
+                      },
                       {
                         name: 'og:image:secure_url',
                         content: `${
