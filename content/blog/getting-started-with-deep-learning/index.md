@@ -4,12 +4,11 @@ date: '2019-01-17'
 spoiler: What you need to know and how to go about learning it.
 ---
 
-Artificial Intelligence is one of most future-proof career fields. Deep Learning--a subfield of Machine Learning, which is itself a subfield of AI--is a very exciting place to be right now. It's where most AI innovation currently happens.
+Artificial Intelligence (AI) is one of most exciting and future-proof career fields. Deep Learning, a sub-field of Machine Learning and AI, is where most AI innovation currently happens.
 
 Nvidia made this video to showcase some of the advancements of AI and Deep Learning:
 
 `youtube: https://www.youtube.com/watch?v=GiZ7kyrwZGQ`
-
 Learning Deep Learning requires time, effort and commitment. Fortunately, there is an abundance of online resources to help you learn. However, the sheer amount of information, concepts and tools that you need to comprehend and internalise can be overwhelming.
 
 This article is far from a comprehensive list of all Deep Learning resources. My goal is to give you a primer on what you can expect to encounter as you're starting out with Deep Learning and point you to a few possible starting points--many of whom I used myself when I was starting out and found valuable.
