@@ -1,5 +1,5 @@
 ---
-title: AI, Robots and humans — a Cyberpsychological perspective
+title: AI, Robots and humans - a Cyberpsychological perspective
 date: '2012-08-04'
 spoiler: What is consciousness and what it really means to be intelligent.
 ---
