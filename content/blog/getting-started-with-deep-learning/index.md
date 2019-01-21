@@ -103,7 +103,7 @@ I _do_ recommend doing the hard work, though. Spruce up your maths and try to un
 
 My favourite learning resource for maths, is [Khan Academy](https://www.khanacademy.org/math).
 
-When you get to linear algebra--or if you're still intimidated by it and are looking for some intuition--do yourself a favour and check out this masterpiece: [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) series, by 3Blue1Brown on YouTube.
+When you get to linear algebra--or if you're still intimidated by it and are looking for some intuition--do yourself a favour and check out this masterpiece: [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) series, by Grant Sanderson on YouTube.
 
 If you want to dig deeper, here are some free resources:
 
@@ -333,7 +333,7 @@ The following is a list of helpful and interesting resources to further your kno
 
 ### YouTube channels
 
-1. [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw): As discussed earlier, this is an excellent learning resource for linear algebra, calculus, neural networks and more.
+1. [Grant Sanderson (3Blue1Brown)](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw): As discussed earlier, this is an excellent learning resource for linear algebra, calculus, neural networks and more.
 1. [Rachel Thomas](https://www.youtube.com/channel/UC_pSCYWbMn4JcsxbWOzkgEQ): High quality, Deep Learning related talks, by the founder of Fast.ai.
 1. [Siraj Raval](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A): Very accessible and educational material on DL and related areas.
 1. [Two Minute Papers, by Károly Zsolnai-Fehér](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg): Károly spends hours reading the latest research literature so that we can _watch_ the most interesting papers in his amazing two-minute videos.
