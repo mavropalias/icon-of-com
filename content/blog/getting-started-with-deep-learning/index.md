@@ -11,7 +11,7 @@ Nvidia made this video to showcase some of the advancements of AI and Deep Learn
 `youtube: https://www.youtube.com/watch?v=GiZ7kyrwZGQ`
 Learning Deep Learning requires time, effort and commitment. Fortunately, there is an abundance of online resources to help you learn. However, the sheer amount of information, concepts and tools that you need to comprehend and internalise can be overwhelming.
 
-This article is far from a comprehensive list of all Deep Learning resources. My goal is to give you a primer on what you can expect to encounter as you're starting out with Deep Learning and point you to a few possible starting points--many of whom I used myself when I was starting out and found valuable.
+My goal is to give you a primer on what you can expect to encounter as you're starting out with Deep Learning and point you to a few possible starting points--many of whom I used myself when I was starting out and found valuable.
 
 If I'm successful, you should get a good understanding around `what` you need to know and `how` to go about learning it. I provide alternative options where possible, so that you can choose what works best for you and create your own learning plan.
 
@@ -67,9 +67,9 @@ You don't need to do a deep-dive in Python. Just get a good understanding of the
 
 ### Deep Learning with JavaScript
 
-Why even mention JavaScript, in a article about Deep Learning? Mainly due to its meteoric rise in [popularity](https://insights.stackoverflow.com/survey/2018#most-popular-technologies) across the full-stack. Many developers are familiar with JS and it's a great, low-barrier, entry into DL.
+You can now do _some_ Deep Learning in JavaScript with [Tensorflow.js](https://js.tensorflow.org) (and if that's too low-level for you [there's an abstraction for it](https://ml5js.org/)) and [Brain.js](https://github.com/BrainJS/brain.js).
 
-You can now do some Deep Learning in JavaScript with [Tensorflow.js](https://js.tensorflow.org) (and if that's too low-level for you, hold your tensors, [there's an abstraction for it](https://ml5js.org/)) and [Brain.js](https://github.com/BrainJS/brain.js).
+Why even mention JavaScript, in a article about Deep Learning? Mainly due to its meteoric rise in [popularity](https://insights.stackoverflow.com/survey/2018#most-popular-technologies) across the stack. Many developers are familiar with JS and it's a great, low-barrier, entry into DL.
 
 If JavaScript is your thing, **this is the path of least resistance** to get your feet wet. You can experiment with these libraries and be amazed with what you can achieve with a few lines of JS. Here is a [course for Tensorflow.js](http://deeplizard.com/learn/playlist/PLZbbT5o_s2xr83l8w44N_g3pygvajLrJ-) and [one for Brain.js](https://scrimba.com/g/gneuralnetworks). There is also a [Deep Learning with JavaScript](https://www.manning.com/books/deep-learning-with-javascript) book, by the authors of TensorFlow.
 
@@ -140,7 +140,7 @@ Current popular Deep Learning frameworks, are:
 
 Other DL frameworks include [Caffe](http://caffe.berkeleyvision.org/), [Theano](http://www.deeplearning.net/software/theano/), [MXNET](https://mxnet.apache.org/), [CNTK](https://github.com/Microsoft/CNTK) and [DL4J](https://deeplearning4j.org/).
 
-I would recommend sticking with PyTorch/FastAI or TensorFlow/Keras--all courses listed below use one of the two.
+I would recommend sticking with PyTorch or TensorFlow (with Keras)--all courses listed below use one of the two.
 
 ## Deep Learning courses
 
@@ -148,7 +148,15 @@ Knowledge of Machine Learning is beneficial before starting with Deep Learning c
 
 I also want to bring [Neural Networks and Deep Learning, by Michael Nielsen](http://neuralnetworksanddeeplearning.com) (free) into this section, although it's an online book and not a course. It is a great learning resource that will teach you many of the core concepts behind NN and DL.
 
-Without further ado, here are the courses. I've included a video of either the first lesson or the course's trailer--where available--so that you can get a feel for it.
+Each course listing includes a video of either the course's trailer (if available), or its first lesson so that you can get a feel for it.
+
+I highly recommend the following path:
+
+1. **Start** with course #1, followed by #2. They're concise, accessible and will get you up to speed quickly.
+2. **Continue** with _one_ of the more thorough #3, #4 or #5 courses.
+3. **Finally**, pick and choose from courses #6---#10 to dive deeper into specialised areas of Deep Learning.
+
+Without further ado, here are the courses.
 
 #### 1. [Machine Learning & Deep Learning Fundamentals](http://deeplizard.com/learn/playlist/PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU)
 
@@ -163,8 +171,6 @@ Certificate: **No**
 This series covers and explains concepts that are fundamental to Deep Learning and Artificial Neural Networks for beginners. In addition to covering these concepts, they also show how to implement some of the concepts in code using Keras.
 
 You will learn about layers in an Artificial Neural Network, activation functions, backpropagation, Convolutional Neural Networks (CNNs), data augmentation, transfer learning and much more!
-
-I highly recommend you start with this course, followed by #2 in this list. They're concise, accessible and will get you up to speed quickly.
 
 #### 2. [Neural Network Programming - Deep Learning with PyTorch](http://deeplizard.com/learn/playlist/PLZbbT5o_s2xrfNyHZsM6ufI0iZENK9xgG)
 
@@ -234,7 +240,7 @@ Cost: **Free**<br/>
 Certificate: **No**
 
 `youtube: https://www.youtube.com/watch?v=nyjbcRQ-uQ8`
-This series is all about reinforcement learning (RL). Here, you'll gain an understanding of the intuition, the math, and the coding involved with RL. You'll first start out with an introduction to RL where you'll learn about Markov Decision Processes (MDPs) and Q-learning.
+This series is all about Reinforcement Learning (RL). Here, you'll gain an understanding of the intuition, the math, and the coding involved with RL. You'll first start out with an introduction to RL where you'll learn about Markov Decision Processes (MDPs) and Q-learning.
 
 You'll then move on to deep RL where you'll learn about deep Q-networks (DQNs) and policy gradients. You'll also build some cool RL projects in code using Python, PyTorch, and OpenAI Gym.
 
