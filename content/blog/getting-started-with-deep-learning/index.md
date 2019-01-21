@@ -1,6 +1,6 @@
 ---
 title: Getting started with Deep Learning in 2019
-date: '2019-01-17'
+date: '2019-01-21'
 spoiler: What you need to know and how to go about learning it.
 ---
 
