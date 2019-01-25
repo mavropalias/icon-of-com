@@ -138,7 +138,7 @@ Current popular Deep Learning frameworks, are:
 - [TensorFlow](https://www.tensorflow.org) (TS) by Google. Very popular, with special libraries for mobiles and JavaScript. TensorFlow's API is not its greatest strength--it's verbose and confusing--and most people use [Keras](https://keras.io/), which sits on top of TS, abstracts its API and provides a more ergonomic interface.
 - [PyTorch](https://pytorch.org) by Facebook. Newer framework that has grown rapidly in popularity. [FastAI](http://www.fast.ai/) provides a Keras-like API for PyTorch.
 
-Other DL frameworks include [Caffe](http://caffe.berkeleyvision.org/), [Theano](http://www.deeplearning.net/software/theano/), [MXNET](https://mxnet.apache.org/), [CNTK](https://github.com/Microsoft/CNTK) and [DL4J](https://deeplearning4j.org/).
+Other DL frameworks include [Caffe](http://caffe.berkeleyvision.org/), [Theano](http://www.deeplearning.net/software/theano/), [MXNET](https://mxnet.apache.org/), [CNTK](https://github.com/Microsoft/CNTK) and [DL4J](https://deeplearning4j.org/)--see this [excellent comparison video](https://www.youtube.com/watch?v=SJldOOs4vB8).
 
 I would recommend sticking with PyTorch or TensorFlow (with Keras)--all courses listed below use one of the two.
 
