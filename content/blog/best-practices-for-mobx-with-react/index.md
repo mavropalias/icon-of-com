@@ -2,6 +2,7 @@
 title: Best practices for MobX with React
 date: '2019-01-03'
 spoiler: For those that are starting out with MobX.
+featured: true
 ---
 
 This is a list of 8 useful tips and best practices for those that are starting out using MobX with React.
