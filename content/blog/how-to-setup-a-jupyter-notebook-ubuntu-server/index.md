@@ -12,7 +12,13 @@ The recommended way to install Jupyter Notebook is via [Anaconda](https://www.an
 
 ## Configure Jupyter Notebook to allow remote connections
 
-By default, a Jupyter Notebook server runs locally at 127.0.0.1:8888 and is accessible only from localhost on [http://127.0.0.1:8888](http://127.0.0.1:8888). We're going to change that to allow connection from the _local network_. You may also configuter Notebook to accept connections from ther internet but there are security implications in doing this, which we're not going to cover in this tutorial.
+By default, a Jupyter Notebook server runs locally at 127.0.0.1:8888 and is accessible only from localhost on [http://127.0.0.1:8888](http://127.0.0.1:8888). We're going to change that to allow remote connections. As a security precaution, I recommend blocking incoming internet connection to the `8888` port on your router.
+
+### Create a config file
+
+```shell
+jupyter notebook --generate-config
+```
 
 ### Set up a Jupyter Notebook password
 
@@ -27,24 +33,18 @@ You will see the following output:
 ```shell
 Enter password:  ****
 Verify password: ****
-[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+[NotebookPasswordApp] Wrote hashed password to /home/your_username/.jupyter/jupyter_notebook_config.json
 ```
 
 ### Enable SSL
 
-You have to use SSL to share your Jupyter Notebooks over the network. Since we're only sharing Notebooks over the _local_ network you may use a self-signed certificate with a very long expiry date.
+It's a good idea to enable SSL when sharing your Jupyter Notebooks over the network. You'll need a certificate for that. The easiest way is to create a self-signed certificate--the downside is that you'll have to ignore your browser's security warnings.
 
 In your terminal, type:
 
 ```shell
 cd ~/.jupyter
 openssl req -x509 -nodes -days 9999 -newkey rsa:2048 -keyout mykey.key -out mycert.pem
-```
-
-### Create a config file
-
-```shell
-jupyter notebook --generate-config
 ```
 
 ### Edit the config file
@@ -56,9 +56,8 @@ The Jupyter Notebook config file `jupyter_notebook_config.py` is in the `~/.jupy
 c.NotebookApp.certfile = u'/home/your_username/.jupyter/mycert.pem'
 c.NotebookApp.keyfile = u'/home/your_username/.jupyter/mykey.key'
 
-# Configure your Ubuntu machine to use a static network ip, then set it here.
-# This will only expose Jupyter Notebooks to your local network.
-c.NotebookApp.ip = '192.168.0.100' # set your IP here
+# Allow remote connections
+c.NotebookApp.ip = '*'
 
 # Save Notebooks under your home folder.
 # Replace 'your_username' with your actual username
@@ -72,15 +71,15 @@ c.NotebookApp.open_browser = False
 
 The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu.
 
-Add the following to your `/etc/rc.local` file (create it, if it doesn't exist):
+There are various ways you can achieve that. The easiest I've found is to add a cron job. In terminal, type `crontab -e` to edit your cron jobs and add the following to the end of the file:
 
-```bash:title=/etc/rc.local
-# Replace the two 'your_username' references with your actual username
-su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py &
+```bash
+# Replace 'your_username' with your actual username
+@reboot cd ; source /.bashrc; ~/anaconda3/bin/jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py >>~/cronrun.log 2>&1
 ```
 
 ## Conclusion
 
 Congratulations! You can now use Jupyter Notebooks remotely and take advantage of your GPU.
 
-Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100:8888`) and ignore your browser's security warnings.
+Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100:8888`).
