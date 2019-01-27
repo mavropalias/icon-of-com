@@ -16,13 +16,15 @@ By default, a Jupyter Notebook server runs locally at 127.0.0.1:8888 and is acce
 
 ### Create a config file
 
+In terminal, type:
+
 ```shell
 jupyter notebook --generate-config
 ```
 
 ### Set up a Jupyter Notebook password
 
-You will have to enter this password whenever you access your Notebooks from a browser. In your terminal, type:
+You will have to enter this password whenever you access your Notebooks from a browser. In terminal, type:
 
 ```shell
 jupyter notebook password
@@ -40,7 +42,7 @@ Verify password: ****
 
 It's a good idea to enable SSL when sharing your Jupyter Notebooks over the network. You'll need a certificate for that. The easiest way is to create a self-signed certificate--the downside is that you'll have to ignore your browser's security warnings.
 
-In your terminal, type:
+In terminal, type:
 
 ```shell
 cd ~/.jupyter
