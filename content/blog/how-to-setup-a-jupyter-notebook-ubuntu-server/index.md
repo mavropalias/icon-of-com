@@ -71,8 +71,8 @@ The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu.
 Edit your `/etc/rc.local` file (create it, if it doesn't exist):
 
 ```bash:title=/etc/rc.local
-# Replace the two 'your_username' references with your actual username
-su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py --no-browser --notebook-dir=/home/simon/notebooks" &
+# Replace the three 'your_username' references with your actual username
+su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py --no-browser --notebook-dir=/home/your_username/notebooks" &
 ```
 
 ## Conclusion
