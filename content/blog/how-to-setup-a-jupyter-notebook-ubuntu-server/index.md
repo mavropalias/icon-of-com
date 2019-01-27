@@ -79,4 +79,4 @@ su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupy
 
 Congratulations! You can now use Jupyter Notebooks remotely and take advantage of your GPU.
 
-Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100`) and ignore your browser's security warnings.
+Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100:8888`) and ignore your browser's security warnings.
