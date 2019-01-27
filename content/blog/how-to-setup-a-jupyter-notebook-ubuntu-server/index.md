@@ -8,7 +8,7 @@ In this tutorial we'll learn how to install and configure a remote Jupyter Noteb
 
 ## Install Jupyter Notebook
 
-The recommended way of installing Jupyter Notebook is via [Anaconda](https://www.anaconda.com/downloads)--if you already have it installed, then you also have Jupyter installed. See the [official instructions](https://jupyter.org/install) for help.
+The recommended way to install Jupyter Notebook is via [Anaconda](https://www.anaconda.com/downloads)--if you already have it installed, then you also have Jupyter installed. See the [official instructions](https://jupyter.org/install) for help.
 
 ## Configure Jupyter Notebook to allow remote connections
 
@@ -51,7 +51,7 @@ jupyter notebook --generate-config
 
 The Jupyter Notebook config file `jupyter_notebook_config.py` is in the `~/.jupyter` directory. Open the file and change the following settings:
 
-```bash
+```bash:title=jupyter_notebook_config.py
 # Replace 'your_username' with your actual username
 c.NotebookApp.certfile = u'/home/your_username/.jupyter/mycert.pem'
 c.NotebookApp.keyfile = u'/home/your_username/.jupyter/mykey.key'
@@ -66,11 +66,11 @@ c.NotebookApp.open_browser = False
 
 ## Start Jupyter Notebooks on boot
 
-The last step is to ensure Jupyter Notebooks run every time you boot Ubuntu.
+The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu.
 
 Edit your `/etc/rc.local` file (create it, if it doesn't exist):
 
-```bash
+```bash:title=/etc/rc.local
 # Replace the two 'your_username' references with your actual username
 su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py --no-browser --notebook-dir=/home/simon/notebooks" &
 ```
