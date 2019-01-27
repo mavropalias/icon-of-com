@@ -53,8 +53,8 @@ The Jupyter Notebook config file `jupyter_notebook_config.py` is in the `~/.jupy
 
 ```bash
 # Replace 'your_username' with your actual username
-c.NotebookApp.certfile = u'/Users/your_username/.jupyter/mycert.pem'
-c.NotebookApp.keyfile = u'/Users/your_username/.jupyter/mykey.key'
+c.NotebookApp.certfile = u'/home/your_username/.jupyter/mycert.pem'
+c.NotebookApp.keyfile = u'/home/your_username/.jupyter/mykey.key'
 
 # Configure your Ubuntu machine to use a static network ip, then set it here.
 # This will only expose Jupyter Notebooks to your local network.
@@ -79,4 +79,4 @@ su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupy
 
 Congratulations! You can now use Jupyter Notebooks remotely and take advantage of your GPU.
 
-Remember to use `https` when connecting to your server (i.e. `https://192.168.0.100`).
+Remember to use `https` when connecting to your server (i.e. `https://192.168.0.100`) and ignore your browser's security warnings.
