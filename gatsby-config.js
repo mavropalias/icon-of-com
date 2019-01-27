@@ -94,6 +94,12 @@ module.exports = {
           },
           `gatsby-remark-autolink-headers`,
           {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'gatsby-remark-code-title'
+            }
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               inlineCodeMarker: '±'
