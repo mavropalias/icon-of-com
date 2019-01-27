@@ -2,6 +2,7 @@
 title: Social Bits at The Psychology of New Media
 date: '2012-11-16'
 spoiler: The slides from my presentation.
+featured: true
 ---
 
 A few weeks ago, I presented my chapter from the upcoming Cyberpsychology book 'The Psychology of New Media' at the IADT in Dún Laoghaire, as part of Innovation Dublin 2012. As promised, here are the slides from the presentation, along with a few notes for people that were not able to attend the event.

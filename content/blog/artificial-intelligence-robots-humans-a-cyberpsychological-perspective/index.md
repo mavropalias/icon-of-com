@@ -2,6 +2,7 @@
 title: AI, Robots and humans - a Cyberpsychological perspective
 date: '2012-08-04'
 spoiler: What is consciousness and what it really means to be intelligent.
+featured: true
 ---
 
 The constant advancements in computing power, _machine learning_ algorithms and breakthroughs in relevant technologies is setting the interaction between humans and computers on a road where sometime in the near future advanced Artificial Intelligences (A.I.) will engage with people in many meaningful ways.

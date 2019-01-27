@@ -2,6 +2,7 @@
 title: Getting started with Deep Learning in 2019
 date: '2019-01-21'
 spoiler: What you need to know and how to go about learning it.
+featured: true
 ---
 
 Artificial Intelligence (AI) is one of most exciting and future-proof career fields. Deep Learning, a sub-field of Machine Learning and AI, is where most AI innovation currently happens.

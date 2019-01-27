@@ -2,6 +2,7 @@
 title: Cybercrime & Cyberterrorism - a Cyberpsychological perspective
 date: '2011-02-23'
 spoiler: How people perceive these two terms and how they are affected by them.
+featured: true
 ---
 
 > "Cyberterrorism is also clearly an emerging threat. Terrorist groups are increasingly computer savvy, and some probably are acquiring the ability to use cyber attacks to inflict isolated and brief disruptions of US infrastructure. Due to the prevalence of publicly available hacker tools, many of these groups probably already have the capability to launch denial-of-service and other nuisance attacks against Internet-connected systems. As terrorists become more computer savvy, their attack options will only increase." (_War on Terrorism_, 2003)

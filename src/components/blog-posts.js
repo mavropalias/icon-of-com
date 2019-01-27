@@ -60,6 +60,15 @@ const BlogPostTitle = styled(Link)`
   &:hover {
     box-shadow: none;
   }
+
+  &.is-featured:before {
+    content: '∗';
+    display: inline-block;
+    font-size: 24px;
+    width: 16px;
+    margin-left: -16px;
+    color: ${colors.secondary};
+  }
 `
 
 const BlogPostTitleSmall = styled(Link)`
@@ -69,6 +78,15 @@ const BlogPostTitleSmall = styled(Link)`
   line-height: 16px;
   font-weight: 500;
   box-shadow: none;
+
+  &.is-featured:before {
+    content: '∗';
+    display: inline-block;
+    font-size: 24px;
+    width: 16px;
+    margin-left: -16px;
+    color: ${colors.secondary};
+  }
 `
 
 const BlogPostMeta = styled.small`
@@ -93,6 +111,7 @@ const BlogPost = ({ post }) => (
   <StyledBlogPost key={post.fields.slug}>
     <BlogPostTitle
       to={post.fields.slug}
+      className={post.frontmatter.featured ? 'is-featured' : ''}
       dangerouslySetInnerHTML={{ __html: post.frontmatter.title }}
     />
     <BlogPostMeta>
@@ -108,6 +127,7 @@ const BlogPostSmall = ({ post }) => (
   <StyledBlogPostSmall key={post.fields.slug}>
     <BlogPostTitleSmall
       to={post.fields.slug}
+      className={post.frontmatter.featured ? 'is-featured' : ''}
       dangerouslySetInnerHTML={{ __html: post.frontmatter.title }}
     />
     <BlogPostMetaSmall>{post.timeToRead} min read</BlogPostMetaSmall>
@@ -128,6 +148,7 @@ const query = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             spoiler
+            featured
           }
         }
       }

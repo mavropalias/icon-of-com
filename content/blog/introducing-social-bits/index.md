@@ -2,6 +2,7 @@
 title: Introducing Social Bits
 date: '2011-04-26'
 spoiler: The theoretical background behind my research in Cyberpsychology.
+featured: true
 ---
 
 I recently concluded my research project towards the MSc in Cyberpsychology, where I investigated if and how personality characteristics and learning styles of individuals can be predicted by analysing their _social bits_. In this article I will give the definition of social bits and present the relevant theoretical background.
