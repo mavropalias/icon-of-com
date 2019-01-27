@@ -44,7 +44,7 @@ const ProfileImage = styled(Img)`
 const About = () => (
   <div>
     <AboutParagraph>
-      I have 18 years of hands-on experience developing complex web & mobile
+      I have ~20 years of hands-on experience developing full-stack web & mobile
       applications from the ground up, leading teams and delivering successful
       products.
     </AboutParagraph>
@@ -54,7 +54,7 @@ const About = () => (
     </AboutParagraph>
     <AboutParagraph>
       IconOf.Com is my mote of dust in the virtual cosmos, exploring modern
-      software engineering and the cyberpsychology of human–computer
+      software engineering, AI and the cyberpsychology of human–computer
       interactions.
     </AboutParagraph>
     <Footer>
@@ -73,7 +73,7 @@ const ProfileMap = styled(Img)`
 const AboutParagraph = styled.p`
   max-width: 450px;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 22px;
   margin-bottom: 16px;
 
   ${MIN_MOBILE_MEDIA_QUERY} {
