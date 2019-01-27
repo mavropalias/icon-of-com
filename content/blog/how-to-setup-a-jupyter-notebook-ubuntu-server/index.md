@@ -60,6 +60,10 @@ c.NotebookApp.keyfile = u'/home/your_username/.jupyter/mykey.key'
 # This will only expose Jupyter Notebooks to your local network.
 c.NotebookApp.ip = '192.168.0.100' # set your IP here
 
+# Save Notebooks under your home folder.
+# Replace 'your_username' with your actual username
+c.NotebookApp.notebook_dir = '/home/your_username/notebooks/'
+
 # Do not open browser when Jupyter Notebooks start
 c.NotebookApp.open_browser = False
 ```
@@ -68,11 +72,11 @@ c.NotebookApp.open_browser = False
 
 The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu.
 
-Edit your `/etc/rc.local` file (create it, if it doesn't exist):
+Add the following to your `/etc/rc.local` file (create it, if it doesn't exist):
 
 ```bash:title=/etc/rc.local
-# Replace the three 'your_username' references with your actual username
-su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py --no-browser --notebook-dir=/home/your_username/notebooks" &
+# Replace the two 'your_username' references with your actual username
+su your_username -c "jupyter notebook --config=/home/your_username/.jupyter/jupyter_notebook_config.py &
 ```
 
 ## Conclusion
