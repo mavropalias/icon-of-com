@@ -196,10 +196,10 @@ Level: **Beginner**<br/>
 Cost: **Free**<br/>
 Certificate: **No**
 
-`youtube: https://www.youtube.com/watch?v=IPBSB1HLNLo`
+`youtube: https://www.youtube.com/watch?v=XfoYk_Z5AkI`
 Learn how to build state of the art models without needing graduate-level maths--but also without dumbing anything down.
 
-This 7-week course is designed for anyone with at least a year of coding experience, and some memory of high-school math. You will start with step one--learning how to get a GPU server online suitable for deep learning--and go all the way through to creating state of the art, highly practical, models for computer vision, natural language processing, and recommendation systems.
+This 7-week course is designed for anyone with at least a year of coding experience, and some memory of high-school math. You will start with step one--learning how to get a GPU server online suitable for deep learning--and go all the way through to creating state of the art, highly practical, models for computer vision, natural language processing, and recommendation systems with PyTorch and fastai library.
 
 #### 4. [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning)
 
