@@ -6,7 +6,7 @@ spoiler: 1cycle policy
 
 Fastai provides two methods to train/fit a model: [`.fit()`](https://docs.fast.ai/basic_train.html#Learner.fit) and [`.fit_one_cycle()`](https://docs.fast.ai/basic_train.html#fit_one_cycle). It is recommended to use the latter due to its better performance in speed and accuracy. But, how does it work?
 
-`fit_one_cycle()` implements Leslie Smith's **1cycle learning rate policy**. Smith developed and published this methodology over three papers:
+`fit_one_cycle()` implements Leslie Smith's **1cycle learning rate policy**. Smith developed and publicised this methodology over three papers:
 
 1. [Cyclical Learning Rates for Training Neural Networks](http://arxiv.org/abs/1506.01186) (2015)
 2. [Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates](http://arxiv.org/abs/1708.07120) (2017)
