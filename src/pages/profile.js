@@ -116,9 +116,11 @@ const Footer = styled.footer`
   line-height: 14px;
   color: ${colors.secondary};
   margin-bottom: 32px;
+  max-width: ${rhythm(24)};
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     margin-bottom: 0;
+    padding: 0 ${rhythm(3 / 4)};
   }
 `
 

@@ -10,7 +10,7 @@ const Pluralsight = () => (
     query={query}
     render={data => (
       <React.Fragment>
-        <h4>
+        <h4 style={{ paddingTop: 0 }}>
           <a href="https://app.pluralsight.com/profile/kostas-mavropalias">
             My Pluralsight skills:
           </a>
