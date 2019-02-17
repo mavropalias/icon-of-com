@@ -1,9 +1,8 @@
 import React from 'react'
-// import addToMailchimp from 'gatsby-plugin-mailchimp'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import { rhythm, scale, colors } from '../utils/typography'
+import { rhythm, colors } from '../utils/typography'
 
 import WowContainer from '../components/wow-container'
 
@@ -31,16 +30,22 @@ class NewsletterSignup extends React.Component {
         ...this.state
       })
     })
-      .then((a, b, c) => {
-        console.log(a, b, c)
+      .then(() => {
         this.setState({
           result: {
-            status: response.result,
-            msg: response.msg
+            status: 'success',
+            msg: 'Subscribed successfully!'
           }
         })
       })
-      .catch(error => alert(error))
+      .catch(error => {
+        this.setState({
+          result: {
+            status: 'error',
+            msg: error
+          }
+        })
+      })
   }
 
   render = () => (
@@ -54,13 +59,13 @@ class NewsletterSignup extends React.Component {
         onSubmit={this.onSubmit}
         className={this.state.result.status}
       >
-        <Label>Newsletter</Label>
-        <P>I will send you my latest content. No spam 👍</P>
+        <Label>Join the Newsletter</Label>
+        <P>I will send you my latest content (no spam).</P>
         <Input
           type="email"
           id="email"
           name="email"
-          placeholder="Your email"
+          placeholder="Your email address"
           value={this.state.email}
           onChange={this.onChange}
           required
