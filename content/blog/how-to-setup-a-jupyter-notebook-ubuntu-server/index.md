@@ -71,9 +71,7 @@ c.NotebookApp.open_browser = False
 
 ## Start Jupyter Notebooks on boot
 
-The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu.
-
-There are various ways you can achieve that. The easiest I've found is to add a cron job. In terminal, type `crontab -e` to edit your cron jobs and add the following to the end of the file:
+The last step is to ensure Jupyter Notebooks runs every time you boot Ubuntu. There are various ways you can achieve that. The easiest I've found is to add a cron job. In terminal, type `crontab -e` to edit your cron jobs and add the following to the end of the file:
 
 ```bash
 # Replace 'your_username' with your actual username
@@ -82,6 +80,4 @@ There are various ways you can achieve that. The easiest I've found is to add a 
 
 ## Conclusion
 
-Congratulations! You can now use Jupyter Notebooks remotely and take advantage of your GPU.
-
-Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100:8888`).
+Congratulations! You can now use Jupyter Notebooks remotely and take advantage of your GPU. Remember to use `https` when connecting to your Jupyter Notebook server (i.e. `https://192.168.0.100:8888`).

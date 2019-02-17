@@ -1,9 +1,8 @@
 import React from 'react'
-import addToMailchimp from 'gatsby-plugin-mailchimp'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
-import { rhythm, scale, colors } from '../utils/typography'
+import { rhythm, colors } from '../utils/typography'
 
 import WowContainer from '../components/wow-container'
 
@@ -17,36 +16,64 @@ class NewsletterSignup extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ email: event.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  onSubmit = async e => {
+  onSubmit = e => {
     e.preventDefault()
-    const response = await addToMailchimp(this.state.email)
-    this.setState({
-      result: {
-        status: response.result,
-        msg: response.msg
-      }
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state
+      })
     })
+      .then(() => {
+        this.setState({
+          result: {
+            status: 'success',
+            msg: 'Subscribed successfully!'
+          }
+        })
+      })
+      .catch(error => {
+        this.setState({
+          result: {
+            status: 'error',
+            msg: error
+          }
+        })
+      })
   }
 
   render = () => (
     <WowContainer>
       <Form
-        onSubmit={() => this.onSubmit(event)}
+        name="newsletter"
+        action="/"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="magic-field"
+        onSubmit={this.onSubmit}
         className={this.state.result.status}
       >
-        <Label>Newsletter</Label>
-        <P>I will send you my latest content. No spam 👍</P>
+        <Label>Join the Newsletter</Label>
+        <P>I will send you my latest content (no spam).</P>
         <Input
           type="email"
           id="email"
           name="email"
-          placeholder="Your email"
+          placeholder="Your email address"
           value={this.state.email}
           onChange={this.onChange}
           required
+        />
+        <input
+          name="magic-field"
+          onChange={this.onChange}
+          style={{ display: 'none' }}
         />
         <Button type="submit">Subscribe</Button>
         {this.state.result.status === 'error' && (
@@ -153,5 +180,11 @@ const ResultMsg = styled.p`
     text-decoration: underline;
   }
 `
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
 export default NewsletterSignup

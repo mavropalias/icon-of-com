@@ -5,7 +5,7 @@ import colors from './colors.js'
 
 const theme = {
   title: 'IconOf.Com Theme',
-  baseFontSize: '20px',
+  baseFontSize: '19px',
   baseLineHeight: 1.75,
   scaleRatio: 3,
   headerFontFamily: [

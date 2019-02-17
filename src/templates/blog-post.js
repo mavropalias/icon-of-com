@@ -10,26 +10,26 @@ class BlogPostTemplate extends React.Component {
     const slug = this.props.data.markdownRemark.fields.slug
 
     // TODO: remove 'blog' from Discus uri
-    if (window.DISQUS) {
-      window.DISQUS.reset({
-        reload: true,
-        config: function() {
-          this.page.url = `https://iconof.com/blog${slug}`
-        }
-      })
-    } else {
-      window.disqus_config = function() {
-        this.page.url = `https://iconof.com/blog${slug}`
-      }
-      ;(function() {
-        // DON'T EDIT BELOW THIS LINE
-        var d = document,
-          s = d.createElement('script')
-        s.src = 'https://iconofcom.disqus.com/embed.js'
-        s.setAttribute('data-timestamp', +new Date())
-        ;(d.head || d.body).appendChild(s)
-      })()
-    }
+    // if (window.DISQUS) {
+    //   window.DISQUS.reset({
+    //     reload: true,
+    //     config: function() {
+    //       this.page.url = `https://iconof.com/blog${slug}`
+    //     }
+    //   })
+    // } else {
+    //   window.disqus_config = function() {
+    //     this.page.url = `https://iconof.com/blog${slug}`
+    //   }
+    //   ;(function() {
+    //     // DON'T EDIT BELOW THIS LINE
+    //     var d = document,
+    //       s = d.createElement('script')
+    //     s.src = 'https://iconofcom.disqus.com/embed.js'
+    //     s.setAttribute('data-timestamp', +new Date())
+    //     ;(d.head || d.body).appendChild(s)
+    //   })()
+    // }
   }
 
   render() {
@@ -66,7 +66,7 @@ class BlogPostTemplate extends React.Component {
           Discuss on Twitter
         </a>
         <NewsletterSignup />
-        <div id="disqus_thread" style={{ marginTop: '64px' }} />
+        {/* <div id="disqus_thread" style={{ marginTop: '64px' }} /> */}
       </article>
     )
   }

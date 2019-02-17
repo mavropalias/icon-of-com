@@ -43,7 +43,7 @@ const ProfileImage = styled(Img)`
 const About = () => (
   <React.Fragment>
     <AboutParagraph>
-      I have 18 years of hands-on experience developing complex web & mobile
+      I have ~20 years of hands-on experience developing full-stack web & mobile
       applications from the ground up, leading teams and delivering successful
       products.
     </AboutParagraph>
@@ -76,7 +76,7 @@ const About = () => (
       <a href="https://www.amazon.co.uk/dp/B00OL40268">
         The Web Designer’s Idea Book
       </a>
-      , among other online and print publications.
+      , among other publications.
     </AboutParagraph>
     <AboutParagraph>
       I am a passionate life-long learner and continually strive to expand and
@@ -116,9 +116,11 @@ const Footer = styled.footer`
   line-height: 14px;
   color: ${colors.secondary};
   margin-bottom: 32px;
+  max-width: ${rhythm(24)};
 
   ${MIN_MOBILE_MEDIA_QUERY} {
     margin-bottom: 0;
+    padding: 0 ${rhythm(3 / 4)};
   }
 `
 

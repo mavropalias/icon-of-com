@@ -31,13 +31,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint:
-          'https://iconof.us7.list-manage.com/subscribe/post?u=0dc964b01aa2ffbec3bc10172&amp;id=9a0972c8fe'
-      }
-    },
-    {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'GitHub',
@@ -109,7 +102,8 @@ module.exports = {
             resolve: `gatsby-remark-social-cards`,
             options: {
               title: {
-                color: 'white' // black|white
+                color: 'white', // black|white
+                size: 32 // 16|24|32|48|64
               },
               meta: {
                 parts: ['iconof.com'],
@@ -165,8 +159,8 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`
       }
     },
-    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-feed`,
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-offline`
   ]
 }
