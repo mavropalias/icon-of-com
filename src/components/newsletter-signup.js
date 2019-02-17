@@ -34,7 +34,7 @@ class NewsletterSignup extends React.Component {
   render = () => (
     <WowContainer>
       <Form
-        netlify
+        data-netlify="true"
         name="newsletter"
         netlify-honeypot="magic-field"
         className={this.state.result.status}
