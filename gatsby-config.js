@@ -159,8 +159,8 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`
       }
     },
-    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-feed`,
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-offline`
   ]
 }
