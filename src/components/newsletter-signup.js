@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigateTo } from 'gatsby-link'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
 import styled from 'styled-components'
 
