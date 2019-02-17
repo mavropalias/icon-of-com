@@ -102,7 +102,8 @@ module.exports = {
             resolve: `gatsby-remark-social-cards`,
             options: {
               title: {
-                color: 'white' // black|white
+                color: 'white', // black|white
+                size: 32 // 16|24|32|48|64
               },
               meta: {
                 parts: ['iconof.com'],
