@@ -38,13 +38,15 @@ const AppHeaderHtml = ({
 }) => (
   <HeaderHtml>
     <Main>
-      {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
       <Banner to="/">
-        <Logo src={logo} alt={`${title} logo`} />
-        <Author>{author}</Author>
-        <Description>
-          {useBlogLayout ? blogDescription : description}
-        </Description>
+        {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
+        <SiteInfo>
+          <Logo src={logo} alt={`${title} logo`} />
+          <Author>{author}</Author>
+          <Description>
+            {useBlogLayout ? blogDescription : description}
+          </Description>
+        </SiteInfo>
       </Banner>
     </Main>
     {!useBlogLayout && <Navigation />}
@@ -72,7 +74,7 @@ const ProfileImage = styled(Img)`
 `
 
 const Banner = styled(Link)`
-  display: block;
+  display: flex;
   box-shadow: none !important;
 
   &:hover {
@@ -80,6 +82,10 @@ const Banner = styled(Link)`
       color: ${colors.accent};
     }
   }
+`
+
+const SiteInfo = styled.div`
+  display: block;
 `
 
 const Logo = styled.img`
