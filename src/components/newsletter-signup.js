@@ -1,5 +1,4 @@
 import React from 'react'
-import { navigateTo } from 'gatsby-link'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
 import styled from 'styled-components'
 
@@ -18,19 +17,9 @@ class NewsletterSignup extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ email: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  // onSubmit = async e => {
-  //   e.preventDefault()
-  //   const response = await addToMailchimp(this.state.email)
-  //   this.setState({
-  //     result: {
-  //       status: response.result,
-  //       msg: response.msg
-  //     }
-  //   })
-  // }
   onSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -42,7 +31,15 @@ class NewsletterSignup extends React.Component {
         ...this.state
       })
     })
-      .then(() => navigateTo(form.getAttribute('action')))
+      .then((a, b, c) => {
+        console.log(a, b, c)
+        this.setState({
+          result: {
+            status: response.result,
+            msg: response.msg
+          }
+        })
+      })
       .catch(error => alert(error))
   }
 
@@ -68,7 +65,11 @@ class NewsletterSignup extends React.Component {
           onChange={this.onChange}
           required
         />
-        <input name="magic-field" style={{ display: 'none' }} />
+        <input
+          name="magic-field"
+          onChange={this.onChange}
+          style={{ display: 'none' }}
+        />
         <Button type="submit">Subscribe</Button>
         {this.state.result.status === 'error' && (
           <Result>
