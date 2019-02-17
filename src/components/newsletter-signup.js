@@ -30,14 +30,30 @@ class NewsletterSignup extends React.Component {
   //     }
   //   })
   // }
+  onSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state
+      })
+    })
+      .then(() => navigateTo(form.getAttribute('action')))
+      .catch(error => alert(error))
+  }
 
   render = () => (
     <WowContainer>
       <Form
-        action="/"
         name="newsletter"
+        action="/"
+        method="post"
         data-netlify="true"
         data-netlify-honeypot="magic-field"
+        onSubmit={this.onSubmit}
         className={this.state.result.status}
       >
         <Label>Newsletter</Label>
