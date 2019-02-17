@@ -1,5 +1,5 @@
 import React from 'react'
-import addToMailchimp from 'gatsby-plugin-mailchimp'
+// import addToMailchimp from 'gatsby-plugin-mailchimp'
 import styled from 'styled-components'
 
 import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
@@ -17,24 +17,26 @@ class NewsletterSignup extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ email: event.target.value })
+    this.setState({ email: e.target.value })
   }
 
-  onSubmit = async e => {
-    e.preventDefault()
-    const response = await addToMailchimp(this.state.email)
-    this.setState({
-      result: {
-        status: response.result,
-        msg: response.msg
-      }
-    })
-  }
+  // onSubmit = async e => {
+  //   e.preventDefault()
+  //   const response = await addToMailchimp(this.state.email)
+  //   this.setState({
+  //     result: {
+  //       status: response.result,
+  //       msg: response.msg
+  //     }
+  //   })
+  // }
 
   render = () => (
     <WowContainer>
       <Form
-        onSubmit={() => this.onSubmit(event)}
+        netlify
+        name="newsletter"
+        netlify-honeypot="magic-field"
         className={this.state.result.status}
       >
         <Label>Newsletter</Label>
@@ -48,6 +50,7 @@ class NewsletterSignup extends React.Component {
           onChange={this.onChange}
           required
         />
+        <input name="magic-field" style={{ display: 'none' }} />
         <Button type="submit">Subscribe</Button>
         {this.state.result.status === 'error' && (
           <Result>
