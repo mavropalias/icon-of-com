@@ -53,7 +53,7 @@ CLRs are not computationally expensive and eliminate the need to find the best l
 
 ![](cifar.jpg)
 
-The above figure shows the training accuracy of the CIFAR-10 dataset over 70,000 iterations. A fixed learning learning rate achieves 81.4% accuracy after 70,000 iterations, while the CLR method achieves the same within 25,000 iterations.
+The above figure shows the training accuracy of the CIFAR-10 dataset over 70,000 iterations. A fixed learning learning rate (blue line) achieves 81.4% accuracy after 70,000 iterations, while the CLR method (red line) achieves the same within 25,000 iterations.
 
 > "The essence of this learning rate policy comes from the observation that increasing the learning rate might have a short term negative effect and yet achieve a longer term beneficial effect." Smith
 
