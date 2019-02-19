@@ -47,11 +47,11 @@ Smith discovered a new method for setting learning rate, named [Cyclical Learnin
 
 One CLR cycle consists of two steps; one in which the learning rate increases and one in which it decreases. Each step has a size (called _stepsize_), which is the number of iterations (e.g. 1k, 5k, etc) where learning rate increases or decreases. Two steps form a cycle. Concretely, a CLR cycle with stepsize of `5,000` will consist of `5,000 + 5,000 = 10,000` total iterations. A CLR policy might consist of multiple cycles.
 
-![](triangularWindow.png)
+![](triangular_window.png)
 
 CLRs are not computationally expensive and eliminate the need to find the best learning rate value--the _optimal_ learning rate will fall somewhere between the minimum and maximum bounds. A cyclical learning rate produces better overall results, despite the fact that it might hinder the network performance temporarily.
 
-![](cifar_LR.jpg)
+![](cifar_lr.jpg)
 
 The above figure shows the training accuracy of the CIFAR-10 dataset over 70,000 iterations. A fixed learning learning rate achieves 81.4% accuracy after 70,000 iterations, while the CLR method achieves the same within 25,000 iterations.
 
@@ -65,7 +65,7 @@ Cyclical Learning Rates are effective because they can successfully negotiate [s
 
 Smith also devised a simple method for estimating reasonable minimum and maximum learning rate bounds; the **LR range test**. The test involves running a model for several epochs, where learning rate starts at a low value and increases linearly towards a high value. A plot of _accuracy versus learning rate_ shows when accuracy starts to increase and when it slows down, becomes ragged, or declines. The following LR range test plot shows two points that are good candidates for the minimum and maximum bounds:
 
-![](normalRangeTest.png 'LR range test plot')
+![](normal_range_test.png 'LR range test plot')
 
 Subsequently, a Cyclical Learning Rate policy that varies between these bounds will produce good classification results, often with fewer iterations and without any significant computational expense, for a range of architectures.
 
@@ -77,7 +77,7 @@ Super-convergence uses the CLR method, but with just one cycle (that contains tw
 
 Concretely, in super-convergence, learning rate starts at a low value, increases to a very large value and then decreases to a value much lower than its initial one. The effect of that learning rate movement is a very distinctive _training accuracy_ curve. Traditional training accuracy curves increase, then plateau as the value of learning rate changes (see blue curve, below). Super-convergence training accuracy curves (see red curve, below) have a dramatic initial jump (moving fast as learning rate increases), oscillate or even decline for a bit (while learning rate is very large) and then jump up again to a distinctive accuracy peak (as learning rate decreases to a very small value).
 
-![](LRvsCLRresnet56.png 'Example of super-convergence training accuracy curve')
+![](lr_vs_clr_resnet56.png 'Example of super-convergence training accuracy curve')
 
 Smith found that a large learning rate acts as a regularisation method. Hence, when using the 1cycle policy other regularisation methods (batch size, momentum, weight decay, etc) must be reduced.
 
