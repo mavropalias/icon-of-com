@@ -1,6 +1,6 @@
 ---
 title: Understanding Fastai's fit_one_cycle method
-date: '2019-02-09'
+date: '2019-02-19'
 spoiler: Learn how the 1cycle policy allows you to train models faster and more accurately.
 featured: true
 ---
