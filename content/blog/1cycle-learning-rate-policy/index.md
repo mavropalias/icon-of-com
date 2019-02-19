@@ -12,7 +12,7 @@ When training models with Fastai it is recommended to use the [`fit_one_cycle()`
 2. [Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates](http://arxiv.org/abs/1708.07120) (2018)
 3. [A disciplined approach to neural network hyper-parameters: Part 1 -- learning rate, batch size, momentum, and weight decay](http://arxiv.org/abs/1803.09820) (2018)
 
-This article explores the underlying concepts behind the 1cycle policy and provides intuition as to why this method works better.
+In this article we'll explore the underlying concepts behind the 1cycle policy and try to understand why this method works better.
 
 ## The problem with Learning Rate
 
