@@ -51,7 +51,7 @@ One CLR cycle consists of two steps; one in which the learning rate increases an
 
 CLRs are not computationally expensive and eliminate the need to find the best learning rate value--the _optimal_ learning rate will fall somewhere between the minimum and maximum bounds. A cyclical learning rate produces better overall results, despite the fact that it might hinder the network performance temporarily.
 
-![](cifar_lr.jpg)
+![](cifar.jpg)
 
 The above figure shows the training accuracy of the CIFAR-10 dataset over 70,000 iterations. A fixed learning learning rate achieves 81.4% accuracy after 70,000 iterations, while the CLR method achieves the same within 25,000 iterations.
 
