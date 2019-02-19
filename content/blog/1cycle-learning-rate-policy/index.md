@@ -84,7 +84,7 @@ Smith found that a large learning rate acts as a regularisation method. Hence, w
 
 ## How Fastai implements the 1cycle policy
 
-Fastai abstracts all the implementation details of the 1cycle policy and provides an intuitive interface in the form of `fit_one_cycle()`. The latter calls `fit()` internally, appending an `OneCycleScheduler` callback:
+Fastai abstracts all the implementation details of the 1cycle policy and provides an intuitive interface in the form of [`fit_one_cycle()`](https://github.com/fastai/fastai/blob/master/fastai/train.py#L14). The latter calls `fit()` internally, appending an `OneCycleScheduler` callback:
 
 ```python
   def fit_one_cycle(learn:Learner, cyc_len:int,
