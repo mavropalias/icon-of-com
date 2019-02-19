@@ -47,7 +47,7 @@ Smith discovered a new method for setting learning rate, named [Cyclical Learnin
 
 One CLR cycle consists of two steps; one in which the learning rate increases and one in which it decreases. Each step has a size (called _stepsize_), which is the number of iterations (e.g. 1k, 5k, etc) where learning rate increases or decreases. Two steps form a cycle. Concretely, a CLR cycle with stepsize of `5,000` will consist of `5,000 + 5,000 = 10,000` total iterations. A CLR policy might consist of multiple cycles.
 
-![](triangular_window.png)
+![](clr.png)
 
 CLRs are not computationally expensive and eliminate the need to find the best learning rate value--the _optimal_ learning rate will fall somewhere between the minimum and maximum bounds. A cyclical learning rate produces better overall results, despite the fact that it might hinder the network performance temporarily.
 
