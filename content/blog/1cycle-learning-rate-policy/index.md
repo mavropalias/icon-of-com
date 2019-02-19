@@ -6,7 +6,7 @@ spoiler: It implements the 1cycle policy to train models faster and more accurat
 
 > TL;DR: `fit_one_cycle()` uses large, cyclical learning rates to train models significantly quicker and with higher accuracy.
 
-Fastai provides two methods to train/fit a model: [`fit()`](https://docs.fast.ai/basic_train.html#Learner.fit) and [`fit_one_cycle()`](https://docs.fast.ai/basic_train.html#fit_one_cycle). It is recommended to use the latter due to its better performance in speed and accuracy. In short, `fit_one_cycle()` is Fastai's implementation of Leslie Smith's **1cycle policy**. Smith developed, refined and publicised his methodology over three research papers:
+When training models with Fastai it is recommended to use the [`fit_one_cycle()`](https://docs.fast.ai/basic_train.html#fit_one_cycle) method, due to its better performance in speed and accuracy, over the [`fit()`](https://docs.fast.ai/basic_train.html#Learner.fit) method. In short, `fit_one_cycle()` is Fastai's implementation of Leslie Smith's **1cycle policy**. Smith developed, refined and publicised his methodology over three research papers:
 
 1. [Cyclical Learning Rates for Training Neural Networks](http://arxiv.org/abs/1506.01186) (2017)
 2. [Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates](http://arxiv.org/abs/1708.07120) (2018)
