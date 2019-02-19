@@ -1,18 +1,18 @@
 ---
-title: Understanding the Fastai fit_one_cycle method
+title: Understanding Fastai's fit_one_cycle method
 date: '2019-02-09'
-spoiler: 1cycle policy
+spoiler: It implements the 1cycle policy to train models faster and more accurately.
 ---
 
-> TL;DR: `.fit_one_cycle()` uses large, cyclical, learning rates to train models significantly quicker and with higher accuracy.
+> TL;DR: `fit_one_cycle()` uses large, cyclical learning rates to train models significantly quicker and with higher accuracy.
 
-Fastai provides two methods to train/fit a model: [`.fit()`](https://docs.fast.ai/basic_train.html#Learner.fit) and [`.fit_one_cycle()`](https://docs.fast.ai/basic_train.html#fit_one_cycle). It is recommended to use the latter due to its better performance in speed and accuracy. But, how does it work?
-
-`.fit_one_cycle()` is Fastai's implementation of Leslie Smith's **1cycle learning rate policy**. Smith developed and publicised his methodology over three research papers:
+Fastai provides two methods to train/fit a model: [`fit()`](https://docs.fast.ai/basic_train.html#Learner.fit) and [`fit_one_cycle()`](https://docs.fast.ai/basic_train.html#fit_one_cycle). It is recommended to use the latter due to its better performance in speed and accuracy. In short, `fit_one_cycle()` is Fastai's implementation of Leslie Smith's **1cycle policy**. Smith developed, refined and publicised his methodology over three research papers:
 
 1. [Cyclical Learning Rates for Training Neural Networks](http://arxiv.org/abs/1506.01186) (2017)
 2. [Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates](http://arxiv.org/abs/1708.07120) (2018)
 3. [A disciplined approach to neural network hyper-parameters: Part 1 -- learning rate, batch size, momentum, and weight decay](http://arxiv.org/abs/1803.09820) (2018)
+
+This article explores the underlying concepts behind the 1cycle policy and provides intuition as to why this method works better.
 
 ## The problem with Learning Rate
 
@@ -45,7 +45,7 @@ Learning rate schedules are mathematical formulas that decrease the learning rat
 
 Smith discovered a new method for setting learning rate, named [Cyclical Learning Rates](http://arxiv.org/abs/1506.01186) (CLRs). Instead of using a fixed, or a decreasing learning rate, the CLR method allows learning rate to continuously oscillate between _reasonable_ minimum and maximum bounds.
 
-One CLR cycle consists of two steps; one in which the learning rate increases and one in which it decreases. Each step has a size (called _stepsize_), which is the number of iterations (e.g. 1k, 5k, etc) where the learning rate increases or decreases. Two steps form a cycle. Concretely, a CLR cycle with stepsize of `5,000` will consist of `5,000 + 5,000 = 10,000` total iterations. A CLR policy might consist of multiple cycles.
+One CLR cycle consists of two steps; one in which the learning rate increases and one in which it decreases. Each step has a size (called _stepsize_), which is the number of iterations (e.g. 1k, 5k, etc) where learning rate increases or decreases. Two steps form a cycle. Concretely, a CLR cycle with stepsize of `5,000` will consist of `5,000 + 5,000 = 10,000` total iterations. A CLR policy might consist of multiple cycles.
 
 ![](triangularWindow.png)
 
@@ -63,72 +63,44 @@ Cyclical Learning Rates are effective because they can successfully negotiate [s
 
 ### Learning Rate range test
 
-Smith also devised a simple method for estimating reasonable minimum and maximum learning rate bounds; the **LR range test**. The test involves running a model for several epochs, where the learning rate starts at a low value and increases linearly towards a high value. A plot of the accuracy versus learning rate shows when the accuracy starts to increase and when it slows down, becomes ragged, or declines. The following LR range test plot shows two points that are good candidates for the minimum and maximum bounds:
+Smith also devised a simple method for estimating reasonable minimum and maximum learning rate bounds; the **LR range test**. The test involves running a model for several epochs, where learning rate starts at a low value and increases linearly towards a high value. A plot of _accuracy versus learning rate_ shows when accuracy starts to increase and when it slows down, becomes ragged, or declines. The following LR range test plot shows two points that are good candidates for the minimum and maximum bounds:
 
 ![](normalRangeTest.png 'LR range test plot')
 
 Subsequently, a Cyclical Learning Rate policy that varies between these bounds will produce good classification results, often with fewer iterations and without any significant computational expense, for a range of architectures.
 
-## Super-convergence
+## Super-convergence and 1cycle policy
 
-Building on his CLR research, Smith followed up with a [paper on Super-Convergence](http://arxiv.org/abs/1708.07120), a phenomenon where `neural networks can be trained an order of magnitude faster than with standard training methods`.
+Building on his CLR research, Smith followed up with his [paper on super-convergence](http://arxiv.org/abs/1708.07120), a phenomenon where `neural networks can be trained an order of magnitude faster than with standard training methods`.
 
-Super-Convergence uses the CLR method, but with just one cycle (that contains two LR steps, one increasing and one decreasing) and a very large maximum learning rate bound. This is called the `1cycle policy`.
+Super-convergence uses the CLR method, but with just one cycle (that contains two learning rate steps, one increasing and one decreasing) and a large maximum learning rate bound. The cycle's size must be smaller than the total number of iterations/epochs. After the cycle is complete, for the remaining iteration/epochs learning rate should decrease even further, several orders of magnitude less than its initial value. Smith named this the `1cycle policy`.
 
-Concretely, in Super-Convergence LR starts at a very low value--almost zero--, increases to a very large value and then decreases again. The effect of that LR movement is a very distinctive training accuracy curve. Traditional training accuracy curves increase, then plateau as the value of learning rate changes (see blue curve, below). Super-Convergence training accuracy curves (see red curve, below) have a dramatic initial jump (moving fast as LR increases), oscillate or even decline for a bit (while LR is very large) and then jump up again to a distinctive accuracy peak (as LR decreases to a very small value).
+Concretely, in super-convergence, learning rate starts at a low value, increases to a very large value and then decreases to a value much lower than its initial one. The effect of that learning rate movement is a very distinctive _training accuracy_ curve. Traditional training accuracy curves increase, then plateau as the value of learning rate changes (see blue curve, below). Super-convergence training accuracy curves (see red curve, below) have a dramatic initial jump (moving fast as learning rate increases), oscillate or even decline for a bit (while learning rate is very large) and then jump up again to a distinctive accuracy peak (as learning rate decreases to a very small value).
 
-![](LRvsCLRresnet56.png 'Example of Super-Convergence training accuracy curve')
+![](LRvsCLRresnet56.png 'Example of super-convergence training accuracy curve')
 
----
+Smith found that a large learning rate acts as a regularisation method. Hence, when using the 1cycle policy other regularisation methods (batch size, momentum, weight decay, etc) must be reduced.
 
----
+## How Fastai implements the 1cycle policy
 
----
+Fastai abstracts all the implementation details of the 1cycle policy and provides an intuitive interface in the form of `fit_one_cycle()`. The latter calls `fit()` internally, appending an `OneCycleScheduler` callback:
 
----
+```python
+  def fit_one_cycle(learn:Learner, cyc_len:int,
+    max_lr:Union[Floats,slice]=defaults.lr, moms:Tuple[float,float]=(0.95,0.85),
+    div_factor:float=25., pct_start:float=0.3, wd:float=None,
+    callbacks:Optional[CallbackList]=None, tot_epochs:int=None,
+    start_epoch:int=1)->None:
+    "Fit a model following the 1cycle policy."
 
----
+    max_lr = learn.lr_range(max_lr)
+    callbacks = listify(callbacks)
+    callbacks.append(OneCycleScheduler(learn, max_lr, moms=moms,
+      div_factor=div_factor, pct_start=pct_start,
+      tot_epochs=tot_epochs,start_epoch=start_epoch))
 
----
+    # highlight-next-line
+    learn.fit(cyc_len, max_lr, wd=wd, callbacks=callbacks)
+```
 
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
-In these situations the network can be trained quickly with one learning rate cycle by using an unusually large learning rate. The very large learning rates used provided the twin benefits of regularization that prevented overfitting and faster training of the network. Figure 5a shows an example of super-convergence, where the training was completed in 10,000 iterations by using learning rates up to 3.0 instead of needing 80,000 iterations with a constant initial learning rate of 0.1.
-
-The LR range test can be used to determine if super-convergence is possible for an architecture. In the LR range test, training starts with a zero or very small learning rate which is slowly increased linearly throughout a pre-training run. This provides information on how well the network can be trained over a range of learning rates.
-
-The highest accuracies attained using standard learning rate schedules are listed in Table 6 and super-convergence test accuracy is 1.2%, 5.2%, and 9.2% better for 50,000, 20,000, and 10,000 training cases, respectively. Hence, super-convergence becomes more beneficial when training data is more limited.
-
-Furthermore, I realized that a single run where the learning rate increased from a small value to a large value provides valuable insight as to the minimum, maximum, and optimal learning rate values. I called this the learning rate range test.
+Calling `fit_one_cycle()` with only a few basic parameters allows us to reap the benefits of the 1cycle policy with very little effort.
