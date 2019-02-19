@@ -1,7 +1,7 @@
 ---
 title: Understanding Fastai's fit_one_cycle method
 date: '2019-02-09'
-spoiler: It implements the 1cycle policy to train models faster and more accurately.
+spoiler: Learn how the 1cycle policy allows you to train models faster and more accurately.
 ---
 
 > TL;DR: `fit_one_cycle()` uses large, cyclical learning rates to train models significantly quicker and with higher accuracy.
