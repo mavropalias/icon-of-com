@@ -1,5 +1,5 @@
 ---
-title: How to setup a Jupyter Notebook server on Ubuntu for remote work
+title: How to set up a remote Jupyter Notebook server on Ubuntu
 date: '2019-01-27'
 spoiler: Harness your server's GPU from other machines on your network.
 ---
