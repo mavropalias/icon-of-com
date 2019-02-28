@@ -1,7 +1,7 @@
 ---
 title: Understanding Fastai's fit_one_cycle method
 date: '2019-02-19'
-spoiler: Learn how the 1cycle policy can train Deep Learning models faster and more accurately.
+spoiler: Learn how the 1cycle policy trains Deep Learning models faster and more accurately.
 featured: true
 ---
 
