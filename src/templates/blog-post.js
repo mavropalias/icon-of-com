@@ -60,7 +60,7 @@ class BlogPostTemplate extends React.Component {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer>
           <a href="https://twitter.com/mavropalias">Follow me on Twitter</a>
-          <NewsletterSignup />
+          <NewsletterSignup source={post.fields.slug} />
         </footer>
       </article>
     )
