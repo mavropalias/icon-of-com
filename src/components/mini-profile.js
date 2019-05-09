@@ -44,7 +44,7 @@ const ProfileImage = styled(Img)`
 const About = () => (
   <div>
     <AboutParagraph>
-      I have ~20 years of hands-on experience developing full-stack web & mobile
+      I have 20 years of hands-on experience developing full-stack web & mobile
       applications from the ground up, leading teams and delivering successful
       products.
     </AboutParagraph>
