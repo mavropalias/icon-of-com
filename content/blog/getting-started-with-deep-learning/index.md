@@ -1,7 +1,7 @@
 ---
-title: Getting started with Deep Learning in 2019
+title: How to get started with Deep Learning
 date: '2019-01-21'
-spoiler: What you need to know and how to go about learning it.
+spoiler: Comprehensive guide on courses, prerequisites, languages, maths, data science, frameworks & more for Deep Learning.
 featured: true
 ---
 
