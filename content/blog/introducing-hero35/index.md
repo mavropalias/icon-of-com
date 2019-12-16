@@ -19,7 +19,9 @@ No time to waste? Check out the talks that I personally [curate](https://hero35.
 
 Looking for your thing? Check out all [accessibility](https://hero35.com/topic/accessibility), [CSS](https://hero35.com/topic/css), [GraphQL](https://hero35.com/topic/graphql), [MobX](https://hero35.com/topic/mobx), [NextJS](https://hero35.com/topic/nextjs), [React Native](https://hero35.com/topic/react-native), [Redux](https://hero35.com/topic/redux), or [TypeScript](https://hero35.com/topic/typescript) talks. These are only 8 of the _619_ topics that we cover, so far!
 
-In a discovery mood? Use the powerful search to find _anything_ … “hooks 2019”, “react native performance”, “graphql”, “redux vs mobx”, “a11y”, "concurrent mode", "Dan Abramov" … you can search across all talk fields.
+In a discovery mood? Use the powerful search to find _anything_ … “hooks”, “react native performance”, “graphql”, “redux vs mobx”, “a11y”, "concurrent mode", … you can search across all talk fields.
+
+---
 
 ---
 
