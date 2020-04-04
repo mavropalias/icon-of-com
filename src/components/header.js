@@ -39,7 +39,11 @@ const AppHeaderHtml = ({
   <HeaderHtml>
     <Main>
       <Banner to="/">
-        {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
+        {useBlogLayout && (
+          <div>
+            <ProfileImage fixed={fixed} alt={author} />
+          </div>
+        )}
         <SiteInfo>
           <Logo src={logo} alt={`${title} logo`} />
           <Author>{author}</Author>
