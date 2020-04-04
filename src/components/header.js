@@ -39,7 +39,11 @@ const AppHeaderHtml = ({
   <HeaderHtml>
     <Main>
       <Banner to="/">
-        {useBlogLayout && <ProfileImage fixed={fixed} alt={author} />}
+        {useBlogLayout && (
+          <div>
+            <ProfileImage fixed={fixed} alt={author} />
+          </div>
+        )}
         <SiteInfo>
           <Logo src={logo} alt={`${title} logo`} />
           <Author>{author}</Author>
@@ -71,6 +75,7 @@ const ProfileImage = styled(Img)`
   margin-right: 16px;
   flex-shrink: 0;
   border-radius: 100%;
+  display: block;
 `
 
 const Banner = styled(Link)`
