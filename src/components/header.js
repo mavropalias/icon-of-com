@@ -71,6 +71,7 @@ const ProfileImage = styled(Img)`
   margin-right: 16px;
   flex-shrink: 0;
   border-radius: 100%;
+  display: block;
 `
 
 const Banner = styled(Link)`
