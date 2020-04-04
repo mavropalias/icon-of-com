@@ -74,13 +74,13 @@ Subsequently, a Cyclical Learning Rate policy that varies between these bounds w
 
 Building on his CLR research, Smith followed up with his [paper on super-convergence](http://arxiv.org/abs/1708.07120), a phenomenon where `neural networks can be trained an order of magnitude faster than with standard training methods`.
 
-Super-convergence uses the CLR method, but with just one cycle (that contains two learning rate steps, one increasing and one decreasing) and a large maximum learning rate bound. The cycle's size must be smaller than the total number of iterations/epochs. After the cycle is complete, for the remaining iteration/epochs learning rate should decrease even further, several orders of magnitude less than its initial value. Smith named this the `1cycle policy`.
+Super-convergence uses the CLR method, but with just one cycle--which contains two learning rate steps, one increasing and one decreasing--and a large maximum learning rate bound. The cycle's size must be smaller than the total number of iterations/epochs. After the cycle is complete, the learning rate should decrease even further for the remaining iterations/epochs, several orders of magnitude less than its initial value. Smith named this the `1cycle policy`.
 
-Concretely, in super-convergence, learning rate starts at a low value, increases to a very large value and then decreases to a value much lower than its initial one. The effect of that learning rate movement is a very distinctive _training accuracy_ curve. Traditional training accuracy curves increase, then plateau as the value of learning rate changes (see blue curve, below). Super-convergence training accuracy curves (see red curve, below) have a dramatic initial jump (moving fast as learning rate increases), oscillate or even decline for a bit (while learning rate is very large) and then jump up again to a distinctive accuracy peak (as learning rate decreases to a very small value).
+Concretely, `in super-convergence, learning rate starts at a low value, increases to a very large value and then decreases to a value much lower than its initial one`. The effect of that learning rate movement is a very distinctive _training accuracy_ curve. Traditional training accuracy curves increase, then plateau as the value of learning rate changes (see blue curve, below). Super-convergence training accuracy curves (see red curve, below) have a dramatic initial jump (moving fast as learning rate increases), oscillate or even decline for a bit (while learning rate is very large) and then jump up again to a distinctive accuracy peak (as learning rate decreases to a very small value).
 
 ![](lr_vs_clr_resnet56.png 'Example of super-convergence training accuracy curve')
 
-Smith found that a large learning rate acts as a regularisation method. Hence, when using the 1cycle policy other regularisation methods (batch size, momentum, weight decay, etc) must be reduced.
+Smith found that `a large learning rate acts as a regularisation method`. Hence, when using the 1cycle policy, other regularisation methods (batch size, momentum, weight decay, etc) must be reduced.
 
 ## How Fastai implements the 1cycle policy
 
