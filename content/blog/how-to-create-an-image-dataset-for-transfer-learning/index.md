@@ -21,8 +21,6 @@ In this article we'll learn a simple method to generate image datasets for Trans
 
 We'll use Google Images to get a list of image URLs and process them in Python and [Fastai](https://github.com/fastai/fastai).
 
-You can [download the Notebook](https://github.com/mavropalias/image-classifier/blob/master/dataset_creator.ipynb).
-
 ## This vs That
 
 Pick a topic--any topic--that you want to classify images on, go to Google and search for images. For this example we'll create a dataset of _clear_ and _velouté_ (thick) soups, which we're going to use to build a model that can classify images of soups based on their viscosity (that will be a separate follow-up article).
@@ -115,3 +113,5 @@ Fastai took care of creating a train and validation dataset for us. Nice.
 ### Conclusion
 
 You now have a dataset of different image categories ready for training! Stay tuned for a follow-up article where we're going to use this dataset to train an image classifier.
+
+You can [download the Notebook](https://github.com/mavropalias/image-classifier/blob/master/dataset_creator.ipynb) with the code from this article. I've also shared the complete dataset, [here](https://github.com/mavropalias/image-classifier). Keep an eye of that repo. I will be updating it as I publish more articles in this Transfer Learning series.
