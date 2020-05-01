@@ -14,7 +14,7 @@ const MiniProjects = () => (
       <WowContainer>
         <StyledH2>Projects</StyledH2>
         <Projects>
-          {data.github.user.pinnedRepositories.nodes.map((repo, index) => (
+          {data.github.user.pinnedItems.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
         </Projects>
@@ -133,16 +133,18 @@ const query = graphql`
     }
     github {
       user(login: "mavropalias") {
-        pinnedRepositories(first: 6) {
+        pinnedItems(first: 6, types: [REPOSITORY]) {
           nodes {
-            name
-            description
-            homepageUrl
-            url
-            repositoryTopics(first: 10) {
-              nodes {
-                topic {
-                  name
+            ... on GitHub_Repository {
+              name
+              description
+              homepageUrl
+              url
+              repositoryTopics(first: 10) {
+                nodes {
+                  topic {
+                    name
+                  }
                 }
               }
             }
