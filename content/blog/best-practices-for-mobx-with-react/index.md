@@ -246,7 +246,7 @@ const Items = inject('productStore')(
 
 ## 8. mobx-state-tree (MST)
 
-As you might have realised, MobX is quite flexible and you can use it in a variety of ways. If you are looking for a more opinionated alternative, then see [mobx-state-tree](https://github.com/mobxjs/mobx-state-tree).
+As you might have realised, MobX is quite flexible and you can use it in a variety of ways. If you prefer a more opinionated alternative, then take a look at [mobx-state-tree](https://github.com/mobxjs/mobx-state-tree).
 
 > "Opinionated, transactional, MobX powered state container combining the best features of the immutable and mutable world for an optimal DX"
 
