@@ -106,7 +106,7 @@ For the needs of the study I developed a website and 6 applications, one for eac
 
 And now, the results! Due to the large amount of data, I had to find a creative way of presenting all the correlations that were detected.
 
-Wherever you see a green cross (+) it means that there is a positive correlation ( p < 0.05) between that item and it's header. A red dash (-) means that is a negative correlation. A double symbol (++ / --) means that the possibility of that results to have been produced due to pure chance, is less than 1% ( p < 0.01).
+Wherever you see a green cross (+) it means that there is a positive correlation ( p < 0.05) between that item and its header. A red dash (-) means that is a negative correlation. A double symbol (++ / --) means that the possibility of that results to have been produced due to pure chance, is less than 1% ( p < 0.01).
 
 ![](16.png)
 
