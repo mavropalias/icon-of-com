@@ -7,7 +7,6 @@ import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { colors, rhythm } from '../utils/typography'
 
 import SEO from '../components/seo'
-import Pluralsight from '../components/pluralsight'
 
 const SEO_KEYWORDS = [
   `kostas mavropalias`,
@@ -86,7 +85,6 @@ const About = () => (
       areas such as Deep Learning, Data Science, MongoDB, Machine Learning,
       Ethereum and Web Accessibility.
     </AboutParagraph>
-    <Pluralsight />
     <AboutParagraph>
       My technical skills include expert knowledge of JavaScript (ES6 &
       TypeScript), developing SPAs in React/Angular/Backbone, native mobile apps

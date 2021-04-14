@@ -42,12 +42,6 @@ module.exports = {
         fetchOptions: {}
       }
     },
-    {
-      resolve: 'gatsby-source-pluralsight',
-      options: {
-        username: 'kostas-mavropalias'
-      }
-    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
