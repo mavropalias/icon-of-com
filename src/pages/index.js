@@ -16,7 +16,7 @@ const SEO_KEYWORDS = [
 
 const IndexPage = () => (
   <React.Fragment>
-    <SEO title="Home" keywords={SEO_KEYWORDS} />
+    <SEO title="Kostas Mavropalias" keywords={SEO_KEYWORDS} />
     <MiniProfile />
     <MiniProjects />
     <BlogPosts />

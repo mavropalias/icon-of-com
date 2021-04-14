@@ -18,7 +18,7 @@ const SEO_KEYWORDS = [
 
 const Page = ({ data }) => (
   <React.Fragment>
-    <SEO title="Profile" keywords={SEO_KEYWORDS} />
+    <SEO title="Kostas Mavropalias Profile" keywords={SEO_KEYWORDS} />
     <ProfileImage
       title={data.site.siteMetadata.author}
       alt={`Photo of ${data.site.siteMetadata.author}`}
