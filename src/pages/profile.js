@@ -47,12 +47,8 @@ const About = () => (
       products.
     </AboutParagraph>
     <AboutParagraph>
-      I am a{' '}
-      <a href="https://www.amazon.co.uk/gp/product/toc/1848721668/">
-        published author
-      </a>
-      , work on numerous personal projects and maintain an active interest in
-      new and emerging technologies.
+      I am a published author, work on numerous personal projects and maintain
+      an active interest in new and emerging technologies.
     </AboutParagraph>
     <AboutParagraph>
       My work has been featured on{' '}
