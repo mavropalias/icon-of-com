@@ -7,6 +7,24 @@ import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { colors } from '../utils/typography'
 import WowContainer from './wow-container'
 
+const darksunDetails = {
+  name: 'Darksun Weather',
+  description:
+    'Weather app for iOS/Android/MacOS. Client built with React Native, backend API built with Node and deployed to AWS ECS.',
+  homepageUrl: 'https://darksunapp.com',
+  url: 'https://darksunapp.com',
+  repositoryTopics: {
+    nodes: [
+      { topic: { name: 'react native' } },
+      { topic: { name: 'typescript' } },
+      { topic: { name: 'node' } },
+      { topic: { name: 'api' } },
+      { topic: { name: 'aws' } },
+      { topic: { name: 'docker' } }
+    ]
+  }
+}
+
 const MiniProjects = () => (
   <StaticQuery
     query={query}
@@ -14,6 +32,8 @@ const MiniProjects = () => (
       <WowContainer>
         <StyledH2>Projects</StyledH2>
         <Projects>
+          <Project featured repo={darksunDetails} />
+
           {data.github.user.pinnedItems.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
@@ -44,9 +64,20 @@ const Projects = styled.ul`
   }
 `
 
-const Project = ({ repo }) => (
-  <StyledProject>
-    <ProjectLink href={repo.url}>
+const Project = ({ repo, featured }) => (
+  <StyledProject style={featured ? { gridColumn: 'span 2' } : {}}>
+    <ProjectLink
+      href={repo.url}
+      style={
+        featured
+          ? {
+              background: 'rgb(165,219,237)',
+              borderColor: 'transparent',
+              color: colors.primary
+            }
+          : {}
+      }
+    >
       <ProjectTitle>
         {repo.name}
         {repo.homepageUrl && (
