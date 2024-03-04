@@ -44,18 +44,14 @@ const ProfileImage = styled(Img)`
 const About = () => (
   <div>
     <AboutParagraph>
-      I have 20 years of hands-on experience developing full-stack web & mobile
+      I have 20+ years of hands-on experience developing full-stack web & mobile
       applications from the ground up, leading teams and delivering successful
       products.
     </AboutParagraph>
     <AboutParagraph>
-      I am a published author, work on numerous personal projects and maintain
-      an active interest in new and emerging technologies.
-    </AboutParagraph>
-    <AboutParagraph>
-      IconOf.Com is my mote of dust in the virtual cosmos, exploring modern
-      software engineering, AI and the cyberpsychology of human–computer
-      interactions.
+      I am a published author, work on numerous personal projects used by
+      thousands of users, and maintain an active interest in new and emerging
+      technologies.
     </AboutParagraph>
     <Footer>
       <em>Kostas Mavropalias, MSc</em>

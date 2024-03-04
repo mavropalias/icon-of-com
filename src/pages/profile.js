@@ -42,16 +42,17 @@ const ProfileImage = styled(Img)`
 const About = () => (
   <React.Fragment>
     <AboutParagraph>
-      I have 20 years of hands-on experience developing full-stack web & mobile
-      applications from the ground up, leading teams and delivering successful
-      products.
+      I am a professional full-stack Software Engineer with 20+ years of
+      experience, including 8+ years of leadership experience, 10+ years of UX
+      experience, product management, and many years of working with globally
+      distributed teams.
     </AboutParagraph>
     <AboutParagraph>
-      I am a published author, work on numerous personal projects and maintain
-      an active interest in new and emerging technologies.
+      I am a published author with numerous open source projects used by
+      thousands of users.
     </AboutParagraph>
     <AboutParagraph>
-      My work has been featured on{' '}
+      My work has been featured on multiple online & print publications, such as{' '}
       <a href="http://lifehacker.com/5700199/penguspy-is-a-database-chock-full-of-games-for-linux">
         Lifehacker
       </a>
@@ -71,28 +72,25 @@ const About = () => (
       <a href="https://www.amazon.co.uk/dp/B00OL40268">
         The Web Designer’s Idea Book
       </a>
-      , among other publications.
+      .
     </AboutParagraph>
     <AboutParagraph>
-      I am a passionate life-long learner and continually strive to expand and
-      deepen my knowledge in software engineering, artificial intelligence and
-      other fields. I hold a BSc in Computer Science, MSc in Cyberpsychology and{' '}
-      <a href="https://www.linkedin.com/in/mavropalias/">certificates</a> in
-      areas such as Deep Learning, Data Science, MongoDB, Machine Learning,
-      Ethereum and Web Accessibility.
+      I have a track record of superior product delivery. I am a life-long
+      learner, driven, excellent communicator, team player, and a user advocate.
+      I am highly technical, possess strong computer science fundamentals, and
+      can drive the overall technology strategy to support long-term strategic
+      goals. I have strong leadership skills, can own technical architecture
+      discussions and lead technical decisions for an engineering organization,
+      and am comfortable collaborating with cross-functional teams.
     </AboutParagraph>
+
     <AboutParagraph>
-      My technical skills include expert knowledge of JavaScript (ES6 &
-      TypeScript), developing SPAs in React/Angular/Backbone, native mobile apps
-      in Objective-C/Swift and RESTful APIs in Node and MongoDB.
-    </AboutParagraph>
-    <AboutParagraph>
-      I am highly creative with expert knowledge of UI design, user research,
-      branding, usability, accessibility, analytics, social media, statistical
-      analysis, wireframing and prototyping.
+      I have a BSc in Computer Science, MSc in Cyberpsychology, and certificates
+      in areas such as Deep Learning, Data Science, Databases, and Web
+      Accessibility.
     </AboutParagraph>
     <Footer>
-      <em>Kostas Mavropalias, MSc. Dublin, Ireland.</em>
+      <em>Kostas Mavropalias, MSc. Ireland.</em>
     </Footer>
   </React.Fragment>
 )
