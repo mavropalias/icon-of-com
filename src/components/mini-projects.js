@@ -10,7 +10,7 @@ import WowContainer from './wow-container'
 const darksunDetails = {
   name: 'Darksun Weather',
   description:
-    'Weather app for iOS/Android/MacOS. Client built with React Native, backend API built with Node and deployed to AWS ECS.',
+    'Weather app for iOS & Android, built with React Native. Backend API built with Node and deployed to AWS ECS.',
   homepageUrl: 'https://darksunapp.com',
   url: 'https://darksunapp.com',
   repositoryTopics: {
@@ -32,8 +32,7 @@ const MiniProjects = () => (
       <WowContainer>
         <StyledH2>Projects</StyledH2>
         <Projects>
-          <Project featured repo={darksunDetails} />
-
+          <Project repo={darksunDetails} />
           {data.github.user.pinnedItems.nodes.map((repo, index) => (
             <Project repo={repo} key={index} />
           ))}
